@@ -1,0 +1,140 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div
+    class="hero-wrap hero-bread"
+    style="background-image: url(<%= asset_path 'bg_6.jpg'%>)"
+  >
+    <div class="container">
+      <div
+        class="row no-gutters slider-text align-items-center justify-content-center"
+      >
+        <div class="col-md-9 ftco-animate text-center">
+          <p class="breadcrumbs">
+              <span class="mr-2"><%= link_to 'home', home_index_path%></span>
+            <span>Login</span>
+          </p>
+          <h1 class="mb-0 bread">Login</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <!--********** MAIN LOG-IN SECTION *************-->
+    <section class="vh-100 mt-5">
+        <div class="container-fluid">    
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+              <form>
+                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start mt-5">
+                  <p class="lead fw-normal mb-0 me-3">Sign in with</p>
+                  <ul
+                    class="ftco-footer-social list-unstyled float-md-left float-lft mt-5"
+                  >
+                    <li class="ftco-animate">
+                      <a href="#"><span class="icon-twitter"></span></a>
+                    </li>
+                    <li class="ftco-animate">
+                      <a href="#"><span class="icon-facebook"></span></a>
+                    </li>
+                    <li class="ftco-animate">
+                      <a href="#"><span class="icon-instagram"></span></a>
+                    </li>
+                  </ul>
+                </div>
+                  <span class="notice"><%= notice %></span><br>
+                  <span class="alert"><%= alert %></span> 
+                <div class="divider d-flex align-items-center my-4">
+                  <p class="text-center fw-bold mx-3 mb-0">Or</p>
+                </div>
+                    <div class="field">
+                      <%= form.label :name, style: "display: block" %>
+                      <%= form.text_field :name %>
+                    </div>
+
+                    <div class="field">
+                      <%= form.label :city, style: "display: block" %>
+                      <%= form.text_field :city %>
+                    </div>
+
+                    <div class="field">
+                      <%= form.label :country, style: "display: block" %>
+                      <%= form.text_field :country %>
+                    </div>
+
+                    <div class="field">
+                      <%= form.label :mobile, style: "display: block" %>
+                      <%= form.number_field :mobile %>
+                    </div>
+ 
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <%= f.label :email, class:'form_lable', for:'form3Example3', value: 'Email address'%><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", id:'form3Example3', class:'form-control form-control-lg', placeholder: 'Enter a valid email address'%>
+                  <%# <input type="email" id="form3Example3" class="form-control form-control-lg"
+                    placeholder="Enter a valid email address" />
+                  <label class="form-label" for="form3Example3">Email address</label> %>
+                </div>
+                                                                      
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                  <%= f.label :password, class:'form_lable', for: 'form3Example4', value:'Password' %><br />
+                  <%= f.password_field :password, autocomplete: "current-password", id:"form3Example4", class:"form-control form-control-lg",
+                    placeholder:"Enter password"%>
+ 
+                  
+                  <%# <input type="password" id="form3Example4" class="form-control form-control-lg"
+                    placeholder="Enter password" />
+                  <label class="form-label" for="form3Example4">Password</label> %>
+                  </div>
+      
+                <div class="d-flex justify-content-between align-items-center">
+                  <!-- Checkbox -->
+                  <div class="form-check mb-0">
+                        <% if devise_mapping.rememberable? %>
+                          
+                            <%= f.check_box :remember_me, class:"form-check-input me-2", id:"form2Example3"%>
+                            <%= f.label :remember_me, class:"form-check-label", for:"form2Example3"%>
+                          
+                        <% end %>
+
+                    <%# <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                    <label class="form-check-label" for="form2Example3">
+                      Remember me
+                    </label> %>
+                  </div>
+                  <%= link_to "Forgot your password?", new_password_path(resource_name)%><br />
+
+                  <%# <a href="forgot.html" class="text-body">Forgot password?</a> %>
+                </div>
+      
+                <div class="text-center text-lg-start mt-4 pt-2">
+                  <div class='actions row'>
+                   <%= f.submit 'Log in', class:'btn btn-primary btn-lg ml-3', style:"padding-left: 2.5rem; padding-right: 2.5rem;"%> 
+                   <%= link_to 'Registration', new_registration_path(resource_name), class:'btn btn-primary btn-lg mx-2', style:"padding-left: 2.5rem; padding-right: 2.5rem;"%>
+                   <%= link_to 'Log out',destroy_session_path(resource_name), class:'btn btn-primary btn-lg mt-2 mx-3', style:"padding-left: 2.5rem; padding-right: 2.5rem;"%>
+                  </div>
+                  <%# <button type="button" class="btn btn-primary btn-lg"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button> %>
+                  <%# <p class="fw-bold mt-2 pt-1 mb-0">Don't have an account?</p> %>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>  
+<% end %>
+
+<%#= render "devise/shared/links" %>
+
+
+
+
+
+
+
+  

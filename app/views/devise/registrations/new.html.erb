@@ -1,0 +1,87 @@
+
+<div class='mb-5'>
+    <div class="hero-wrap hero-bread"
+            style="background-image: url(<%= asset_path 'bg_6.jpg'%>); z-index: -1;">      
+          <div class="container">
+            <div
+              class="row no-gutters slider-text align-items-center justify-content-center"
+            >
+              <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs">
+                    <span class="mr-2"><%= link_to 'home', home_index_path%></span>
+                  <span>Registration</span>
+                </p>
+                <h1 class="mb-0 bread">Registration</h1>
+              </div>
+            </div>
+          </div>      
+        </div>
+
+    <%# section start %>
+  <section class="mt-5" style="background-color:">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-9 col-lg-4 col-xl-5">
+            <%= render "devise/shared/error_messages", resource: resource, class:"alert alert-warning"%>                                 
+
+             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw1.webp"
+                class="img-fluid" alt="Sample image">
+
+          </div>
+
+          <div class="col-md-8 cols-lg-8 col-xl-4 offset-xl-0">
+             <div class="form-outline mb-4">
+             
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :city %><br />
+        <%= f.text_field :city, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :country %><br />
+        <%= f.text_field :country, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :mobile %><br />
+        <%= f.text_field :mobile, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+             </div>
+          </div>
+      </div> 
+    </div>      
+  </section>   
+    <%#= render "devise/shared/links" %>
+</div>

@@ -1,0 +1,134 @@
+
+<div class="py-1 bg-black">
+    <div class="container">
+        <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+            <div class="col-lg-12 d-block">
+                <div class="row d-flex">
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center">
+                            <span class="icon-phone2"></span>
+                        </div>
+                        <span class="text">+91 8421370161</span>
+                    </div>
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center">
+                            <span class="icon-paper-plane"></span>
+                        </div>
+                        <span class="text">tejas.raut@softices.com</span>
+                    </div>
+                    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+                        <span class="text">3-5 Business days delivery &amp; Free Returns</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <!-- 
+    ----------------------
+    navbar
+    ----------------------
+    -->
+
+<nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <%= link_to 'Shoeshop', home_index_path, class:'navbar-brand' %>
+        <%# <a class="navbar-brand" href="index.html">Shoeshop</a> %>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#ftco-nav"
+          aria-controls="ftco-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="col-sm-5 col-md-3 mt-3">
+          <form action="#" class="form-group d-inline-flex">
+            <input
+              list="shoes"
+              type="search"
+              class="px-2"
+              style="padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: none;"
+              placeholder="search"
+            />
+            <datalist id="shoes">
+              <option><%= Category.first.name%></option>
+              <option><%= Category.find(3).name%></option>
+              <option><%= Category.last.name%></option>
+            </datalist>
+            <button
+              class="btn btn-primary submit-search text-center"
+              style="margin-left: 5px"
+              type="submit"
+            >
+              <i class="icon-search"></i>
+            </button>
+          </form>
+        </div>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <%= link_to 'home', home_index_path,  class:'nav-link' %>
+                    <%# <a href="index.html" class="nav-link">Home</a> %>
+                </li>
+
+                <li class="nav-item active">
+                    <%= link_to 'shop', shoes_path,  class:'nav-link' %>
+                    <%# <a href="index.html" class="nav-link">Shop</a> %>
+                </li>
+                <%#<li class="nav-item dropdown">
+                <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="dropdown04"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >Catalog</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                    <%= link_to 'Shop', shoes_path, class:'dropdown-item' %>
+                    <%# <a class="dropdown-item" href="shop.html">Shop</a> %>
+                    <%#= link_to 'Single Product',single_product_index_path, class:'dropdown-item' %>
+                    <%# <a class="dropdown-item" href="product-single.html">Single Product</a> %>
+                    <%# <%= link_to 'Cart', carts_path, class:'dropdown-item' %> 
+                    <%# <a class="dropdown-item" href="cart.html">Cart</a> %>
+                    <%#= link_to 'Checkout', checkout_index_path, class: 'dropdown-item' %>
+                    <%# <a class="dropdown-item" href="checkout.html">Checkout</a> %>
+                <%# </div> %>
+                <%# </li> %>
+                
+                <li class="nav-item">
+                    <%= link_to 'about', home_about_path, class:'nav-link' %>
+                    <%# <a href="about.html" class="nav-link">About</a> %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'blog', home_blog_path, class:'nav-link' %>
+                    <%# <a href="blog.html" class="nav-link">Blog</a> %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'contacts', home_contacts_path, class:'nav-link' %>
+                    <%# <a href="contact.html" class="nav-link">Contact</a> %>
+                </li>
+                
+                <% if user_signed_in? %>
+                <li class="nav-item">
+                    <%#= link_to 'log out', destroy_user_session_path, class:'nav-link' %>
+                    <%= link_to 'sign Out', destroy_user_session_path, :method => :delete, class:'nav-link' %>
+                    <%# <a href="login.html" class="nav-link">Log in</a> %>
+                </li>
+                <% end %>
+                <li class="nav-item cta cta-colored mt-1">
+                    <%= link_to 'cart', carts_path, class:'nav-link icon-shopping_cart' %>
+                     <%# <a href="cart.html" class="nav-link">
+                    <span class="icon-shopping_cart"></span>Cart[0]</a>  %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

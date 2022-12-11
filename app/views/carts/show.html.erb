@@ -1,0 +1,107 @@
+
+  <%#= render @cart %>
+
+
+  <div id="cart">
+  <div class="hero-wrap hero-bread" style="background-image: url(<%= asset_path 'bg_6.jpg'%>);">
+      <div class="container ">
+          <div class="row no-gutters slider-text align-items-center justify-content-center">
+              <div class="col-md-9 ftco-animate text-center">
+                  <p class="breadcrumbs"><span class="mr-2"><%= link_to 'home', home_index_path %></span> <span>Cart</span></p>
+                  <h1 class="mb-0 bread">My Wishlist</h1>
+                  <p style="color: green"><%= notice %></p>
+              </div>
+          </div>
+      </div>
+  </div>
+      <%# <h1><%= link_to "New cart", new_cart_path</h1> %> 
+  <section class="ftco-section ftco-cart">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12 ftco-animate">
+                  <div class="cart-list">
+        						<!-- wishlist tables -->
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>Shoe</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Show</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                            
+                                 <tr class="text-center">
+                                <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>     
+                                <td class="image-prod"><div class="img" style="background-image: url(<%= url_for cart.shoe.file %>);"></div></td>
+                                    <td class="product-name">
+                                      <h3><%= cart.shoe.name%></h3>
+                                        <p>Far far away, behind the word mountains, far from the countries</p>		
+                                    </td>
+                                    <td class="price"><%= cart.shoe.price%></td>
+                                <td class="quantity">
+                                    <div class="input-group mb-3">
+                                            <span class= "quantity form-control input-number">
+                                                <p class="mt-3"><%= cart.quantity%></p>              
+                                              </span>
+                                                <%# <input type="text" name="quantity" class="quantity form-control input-number" min="1" max="100"> %>
+                                      </div>
+                                    </td>
+                                    <td class="total"><%= cart.order.final_total%></td>
+                                <td><%= link_to "Show this cart", cart %></td>
+                              </tr><!-- END TR-->
+
+                        </tbody>
+                    </table>
+                  </div>
+              </div>
+          </div>
+
+
+          <%# billing %>
+
+      <div class="row justify-content-start">
+    			<div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+    				<div class="cart-total mb-3">
+    					<h3>Cart Totals</h3>
+    					<p class="d-flex">
+    						<span>Final_total</span>
+    						<span><%= @cart.order.final_total%></span>
+    					</p>
+    					<p class="d-flex">
+    						<span>Quantity</span>
+    						<span><%= @cart.quantity%></span>
+    					</p>
+    					<p class="d-flex">
+    						<span>Discount</span>
+    						<span><%= @cart.order.discount%></span>
+    					</p>
+    					<hr>
+    					<p class="d-flex total-price">
+    						<span>Total</span>
+    						<span><%= @cart.order.final_total - @cart.order.discount%></span>
+    					</p>
+    				</div>
+    				<p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+    			</div>
+    	</div>
+
+
+    </div>
+
+      
+  </section>    
+</div>
+  
+<% if current_admin_user.admin%>
+<div class="text-center mb-5">  
+  <%= link_to "Edit this cart", edit_cart_path(@cart) %> |
+  <%= link_to "Back to carts", carts_path %>
+  <%= button_to "Destroy this cart", @cart, method: :delete , class:"btn btn-secondary mt-3"%>
+</div>
+<%end%>
+
