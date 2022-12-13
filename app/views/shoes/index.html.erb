@@ -54,7 +54,7 @@
                         </p>
                       </div>
                     </div>
-                    
+                      
                     
                     <h3><a href="#"><%= shoe.name%></a></h3>
                     <div class="pricing">
@@ -66,8 +66,8 @@
                       <i class:"ion-ios-add ml-1"></i>%>  
 
                       
-                      <%= link_to 'Add to cart', carts_path(shoe.id), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
-                      
+                      <%= link_to 'Add to cart', carts_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
+                      <%= link_to 'Buy', carts_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
                       <%# <a href="#" class="buy-now text-center py-2"
                         >Buy now<span><i class="ion-ios-cart ml-1"></i></span
                       ></a> %>
@@ -78,7 +78,7 @@
                 
                   
                   
-                    <%#= render shoe %>
+                    <%#= render shoe %> 
                     <%# <p> %>
                     <%# </p> %>
               </div>

@@ -1,6 +1,7 @@
 //= require 'jquery.min' 
+//= require 'jquery_ujs'
 //= require 'jquery-migrate-3.0.1.min' 
-//= require 'popper.min' 
+// require 'popper.min' 
 //= require 'bootstrap.min' 
 //= require 'jquery.easing.1.3' 
 //= require 'jquery.waypoints.min' 

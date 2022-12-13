@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true
       t.decimal :total
       t.decimal :discount
-
+      
       t.timestamps
     end
   end

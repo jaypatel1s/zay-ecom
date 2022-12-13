@@ -10698,13 +10698,13 @@ h5,
 }
 .topper .text {
   width: calc(100% - 30px);
-  color: white;
+  color: white; 
 }
 
 .ftco-navbar-light {
   background: transparent !important;
   position: absolute;
-  top: 20px;
+  top: 0px;
   left: 0;
   right: 0;
   z-index: 3;

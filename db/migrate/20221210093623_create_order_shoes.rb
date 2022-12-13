@@ -6,7 +6,7 @@ class CreateOrderShoes < ActiveRecord::Migration[7.0]
       t.decimal :price
       t.decimal :discount
       t.boolean :active
-
+      
       t.timestamps
     end
   end

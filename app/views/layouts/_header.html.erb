@@ -1,4 +1,3 @@
-
 <div class="py-1 bg-black">
     <div class="container">
         <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
@@ -31,9 +30,9 @@
     ----------------------
     -->
 
-<nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-light" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-light " id="ftco-navbar">
     <div class="container">
-        <%= link_to 'Shoeshop', home_index_path, class:'navbar-brand' %>
+        <%= link_to 'Shoeshop', root_path, class:'navbar-brand' %>
         <%# <a class="navbar-brand" href="index.html">Shoeshop</a> %>
         <button
           class="navbar-toggler"
@@ -57,9 +56,9 @@
               placeholder="search"
             />
             <datalist id="shoes">
-              <option><%= Category.first.name%></option>
-              <option><%= Category.find(3).name%></option>
-              <option><%= Category.last.name%></option>
+              <option>Mens</option>
+              <option>Womens</option>
+              <option>Kids</option>
             </datalist>
             <button
               class="btn btn-primary submit-search text-center"
@@ -74,7 +73,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <%= link_to 'home', home_index_path,  class:'nav-link' %>
+                    <%= link_to 'home', root_path,  class:'nav-link' %>
                     <%# <a href="index.html" class="nav-link">Home</a> %>
                 </li>
 
@@ -115,11 +114,11 @@
                     <%= link_to 'contacts', home_contacts_path, class:'nav-link' %>
                     <%# <a href="contact.html" class="nav-link">Contact</a> %>
                 </li>
-                
+        
                 <% if user_signed_in? %>
                 <li class="nav-item">
                     <%#= link_to 'log out', destroy_user_session_path, class:'nav-link' %>
-                    <%= link_to 'sign Out', destroy_user_session_path, :method => :delete, class:'nav-link' %>
+                    <%= link_to 'sign out', destroy_user_session_path, :method => :delete, class:'nav-link' %>
                     <%# <a href="login.html" class="nav-link">Log in</a> %>
                 </li>
                 <% end %>

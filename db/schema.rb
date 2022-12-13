@@ -65,6 +65,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_110453) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "cart_id", null: false
+    t.index ["cart_id"], name: "index_order_shoes_on_cart_id"
     t.index ["order_id"], name: "index_order_shoes_on_order_id"
     t.index ["shoe_id"], name: "index_order_shoes_on_shoe_id"
   end
@@ -111,6 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_110453) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "carts", "shoes"
   add_foreign_key "carts", "users"
+  add_foreign_key "order_shoes", "carts"
   add_foreign_key "order_shoes", "orders"
   add_foreign_key "order_shoes", "shoes"
   add_foreign_key "orders", "users"
