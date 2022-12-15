@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_cart, only: %i[update destroy ]
+  before_action :set_cart, only: %i[ update destroy ]
   # GET /carts or /carts.json
   def index
     @carts = current_user.carts
@@ -30,7 +30,7 @@ class CartsController < ApplicationController
 
   # PATCH/PUT /carts/1 or /carts/1.json
   def update
-    @cart.update(quantity: params[:quantity])
+    @cart.update(cart_params)
     respond_to do |format|
       format.html { redirect_to carts_url, notice: "Cart was successfully upadted." } 
     end

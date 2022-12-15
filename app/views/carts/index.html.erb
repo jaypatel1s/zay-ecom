@@ -3,7 +3,7 @@
       <div class="container ">
           <div class="row no-gutters slider-text align-items-center justify-content-center">
               <div class="col-md-9 ftco-animate text-center">
-                  <p class="breadcrumbs"><span class="mr-2"><%= link_to 'home', home_index_path %></span> <span>Cart</span></p>
+                  <p class="breadcrumbs"><span class="mr-2"><%= link_to 'home', root_path %></span> <span>Cart</span></p>
                   <h1 class="mb-0 bread">My Wishlist</h1>
                   <span style="color: green"><%= notice %></span>
               </div>
@@ -45,27 +45,25 @@
                                       <h3><%= cart.shoe.name%></h3>
                                         <p>Far far away, behind the word mountains, far from the countries</p>		
                                     </td>
-                                    <td class="price"><%= cart.shoe.price%></td>
-                                    <%= form_with model: cart, id: "cart_#{cart.id}" do %>
+                                    <td class="price"><%= number_to_currency(cart.shoe.price)%></td>
                                     <td class="quantity">
                                         <div class="input-group mb-3">  
                                                 <span class= "quantity form-control input-number">
-                                                    <input class="mt-3 text-center" type= "text" name="quantity" data-id="<%= cart.id %>" data-price="<%= cart.shoe.price %>" value="<%= cart.set_quantity %>">              
+                                                    <input class="mt-3 text-center" type= "text" name="quantity" value="<%= cart.set_quantity %>">              
                                                     </span>
                                                     <%# <input type = "text" name="quantity" class="quantity form-control input-number" min="1" max="100"> %>
                                         </div>
-                                    </td>
+                                    </td>   
                                     <td class="quantity">
                                         <div class="input-group mb-3">  
                                                 <span class= "quantity form-control input-number">
-                                                    <input class="mt-3 text-center" type= "text" name="quantity" data-id="<%= cart.id %>" data-price="<%= cart.shoe.price %>" value="<%= cart.size %>">              
+                                                    <input class="mt-3 text-center" type= "text" name="size" value="<%= cart.size %>">              
                                                 </span>
                                                 <%# <input type="text" name="quantity" class="quantity form-control input-number" min="1" max="100"> %>
                                         </div>
                                     </td>
                                     <td class="total"><%= cart.shoe.discount%></td>
                                     <td class="total"><%= cart.shoe.price - cart.shoe.discount%></td>
-                                <%end%>
                                 <td><%#= link_to "Show this cart", cart</td> %>
                               </tr><!-- END TR-->
                             <% end %>
@@ -79,6 +77,7 @@
           <%# billing %>
       <div class="row justify-content-start">
     			<div class='col col-lg-7 col-md-6 mt-5 cart-wrap ftco-animate'>
+                    <%#= link_to 'update cart', carts_path,  class:'btn btn-primary py-3 px-4' %>
                 </div>
                 <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
                     <p class="text-center"><%= link_to 'Contineu Shopping', shoes_path, class:'btn btn-primary py-3 px-4'%>
@@ -86,7 +85,7 @@
     					<h3>Cart Totals</h3>
     					<p class="d-flex">
     						<span>Total with discount</span>
-    						<span><%= number_to_currency(total)%></span>
+    						<span><%= number_to_currency(total) %></span>
     					</p>    
     					<hr>
     					<p class="d-flex total-price">
