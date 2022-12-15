@@ -61,16 +61,13 @@
                       <p class="price"><span><%= shoe.price%></span></p>
                     </div>
                     <p class="bottom-area d-flex px-3">
-                      
-                      <%# <%= link_to 'Add to cart', carts_show_path, class:"add-to-cart text-center py-2 mr-1">
-                      <i class:"ion-ios-add ml-1"></i>%>  
-
-                      
+                                           
                       <%= link_to 'Add to cart', carts_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
                       <%= link_to 'Buy', carts_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
-                      <%# <a href="#" class="buy-now text-center py-2"
-                        >Buy now<span><i class="ion-ios-cart ml-1"></i></span
-                      ></a> %>
+                      
+                      <%#= link_to 'Add to cart', order_shoes_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
+                      <%#= link_to 'Buy', order_shoes_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
+                      
                     </p>
                       <%= link_to "close view", shoe %>
 
