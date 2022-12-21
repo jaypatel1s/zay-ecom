@@ -1,30 +1,37 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
 
-  # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    @user_orders = current_user.orders
   end
 
-  # GET /orders/1 or /orders/1.json
   def show
+    @order_shoes = @order.order_shoes
   end
 
-  # GET /orders/new
   def new
     @order = Order.new
   end
 
-  # GET /orders/1/edit
   def edit
   end
 
-  # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params)
-
-    respond_to do |format|
+    @order = current_user.orders.build(order_params)
+    respond_to do |format|      
       if @order.save
+        quantity_size_array = params[:test].as_json.to_a
+        quantity_size_array.each_slice(2) do |qs|
+          cart_id = qs.first.first.scan(/\d/).join('')
+          cart = Cart.find_by(id: cart_id)
+          next if cart.blank?
+
+          @order.order_shoes.create(cart_id: cart.id, shoe_id: cart.shoe_id, 
+            price: cart.shoe.price, discount: cart.shoe.discount, active: true, 
+            quantity: qs.first.last, size: qs.last.last
+          ) 
+      end      
+    
         format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
       else
@@ -34,7 +41,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /orders/1 or /orders/1.json
   def update
     respond_to do |format|
       if @order.update(order_params)
@@ -47,7 +53,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1 or /orders/1.json
   def destroy
     @order.destroy
 
@@ -58,13 +63,15 @@ class OrdersController < ApplicationController
   end
   
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def order_params
-      params.require(:order).permit(:user_id, :total, :discount)
+    def set_order
+      @order = Order.find_by(id: params[:id])
+      unless @order.present?
+        redirect_to root_path, notice: 'Order not found'
+      end
     end
-end
+                                        
+    def order_params
+      params.require(:order).permit(:user_id, :total, :discount, :name, :email, :address, :pay_method, :terms_and_conditions)
+    end
+end 

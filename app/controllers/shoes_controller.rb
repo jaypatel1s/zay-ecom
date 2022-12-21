@@ -1,25 +1,21 @@
 class ShoesController < ApplicationController
+  before_action :check_is_admin_user, except: %i[ index show ]
   before_action :set_shoe, only: %i[ show edit update destroy ]
 
-  # GET /shoes or /shoes.json
   def index
     @shoes = Shoe.all
   end
 
-  # GET /shoes/1 or /shoes/1.json
   def show
   end
 
-  # GET /shoes/new
   def new
     @shoe = Shoe.new
   end
 
-  # GET /shoes/1/edit
   def edit
   end
 
-  # POST /shoes or /shoes.json
   def create
     @shoe = Shoe.new(shoe_params)
 
@@ -34,7 +30,6 @@ class ShoesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /shoes/1 or /shoes/1.json
   def update
     respond_to do |format|
       if @shoe.update(shoe_params)
@@ -47,7 +42,6 @@ class ShoesController < ApplicationController
     end
   end
 
-  # DELETE /shoes/1 or /shoes/1.json
   def destroy
     @shoe.destroy
 
@@ -58,12 +52,13 @@ class ShoesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_shoe
-      @shoe = Shoe.find(params[:id])
+      @shoe = Shoe.find_by(id: params[:id])
+      unless @shoe.present?
+        redirect_to root_path, notice: 'Shoe not found'
+      end
     end
 
-    # Only allow a list of trusted parameters through.
     def shoe_params
       params.require(:shoe).permit(:category_id, :name, :brand, :size, :active, :price, :discount, :file)
     end

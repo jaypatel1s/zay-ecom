@@ -74,58 +74,37 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <%= link_to 'home', root_path,  class:'nav-link' %>
-                    <%# <a href="index.html" class="nav-link">Home</a> %>
                 </li>
-
                 <li class="nav-item active">
                     <%= link_to 'shop', shoes_path,  class:'nav-link' %>
-                    <%# <a href="index.html" class="nav-link">Shop</a> %>
                 </li>
-                <%#<li class="nav-item dropdown">
-                <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    id="dropdown04"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    >Catalog</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                    <%= link_to 'Shop', shoes_path, class:'dropdown-item' %>
-                    <%# <a class="dropdown-item" href="shop.html">Shop</a> %>
-                    <%#= link_to 'Single Product',single_product_index_path, class:'dropdown-item' %>
-                    <%# <a class="dropdown-item" href="product-single.html">Single Product</a> %>
-                    <%# <%= link_to 'Cart', carts_path, class:'dropdown-item' %> 
-                    <%# <a class="dropdown-item" href="cart.html">Cart</a> %>
-                    <%#= link_to 'Checkout', checkout_index_path, class: 'dropdown-item' %>
-                    <%# <a class="dropdown-item" href="checkout.html">Checkout</a> %>
-                <%# </div> %>
-                <%# </li> %>
-                
                 <li class="nav-item">
                     <%= link_to 'about', home_about_path, class:'nav-link' %>
-                    <%# <a href="about.html" class="nav-link">About</a> %>
                 </li>
                 <li class="nav-item">
                     <%= link_to 'blog', home_blog_path, class:'nav-link' %>
-                    <%# <a href="blog.html" class="nav-link">Blog</a> %>
                 </li>
+                <% if user_signed_in? && current_user.is_admin? %>
+                    <li class="nav-item">
+                        <%= link_to 'Add_Shoe', new_shoe_path, class:'nav-link' %>
+                    </li>
+                <% end %>
+
                 <li class="nav-item">
                     <%= link_to 'contacts', home_contacts_path, class:'nav-link' %>
-                    <%# <a href="contact.html" class="nav-link">Contact</a> %>
                 </li>
-        
+
                 <% if user_signed_in? %>
-                <li class="nav-item">
-                    <%#= link_to 'log out', destroy_user_session_path, class:'nav-link' %>
-                    <%= link_to 'sign out', destroy_user_session_path, :method => :delete, class:'nav-link' %>
-                    <%# <a href="login.html" class="nav-link">Log in</a> %>
-                </li>
+                    <li class="nav-item">
+                        <%= link_to 'sign out', destroy_user_session_path, :method => :delete, class:'nav-link' %>
+                    </li>
+                <% else %>
+                    <li class="nav-item">
+                        <%= link_to 'sign in', new_user_session_path, class:'nav-link' %>
+                    </li>
                 <% end %>
                 <li class="nav-item cta cta-colored mt-1">
                     <%= link_to 'cart', carts_path, class:'nav-link icon-shopping_cart' %>
-                     <%# <a href="cart.html" class="nav-link">
-                    <span class="icon-shopping_cart"></span>Cart[0]</a>  %>
                 </li>
             </ul>
         </div>

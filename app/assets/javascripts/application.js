@@ -12,4 +12,5 @@
 //= require 'jquery.animateNumber.min' 
 //= require 'bootstrap-datepicker' 
 //= require 'scrollax.min' 
-//= require 'main' 
+//= require 'main'
+//= require 'order_page'

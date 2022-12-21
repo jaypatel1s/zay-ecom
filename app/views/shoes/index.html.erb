@@ -35,8 +35,10 @@
 
 
                   <a href="#" class="img-prod">
-                      <%= image_tag shoe.file, class: 'img-fluid' %>
-                      <div class="overlay"></div>
+                      <% if shoe.file.present? %>
+                        <%= image_tag shoe.file, class: 'img-fluid' %>
+                        <div class="overlay"></div>
+                      <% end %>
                   </a>
 
               <div class="text py-3 pb-4 px-3">
@@ -58,19 +60,18 @@
                     
                     <h3><a href="#"><%= shoe.name%></a></h3>
                     <div class="pricing">
-                      <p class="price"><span><%= shoe.price%></span></p>
+                      <p class="price"><span class="fa fa-rupee shoe-price"> <%= shoe.price%></span></p>
                     </div>
                     <p class="bottom-area d-flex px-3">
                                            
-                      <%= link_to 'Add to cart', carts_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
-                      <%= link_to 'Buy', carts_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
+                      <%= link_to 'Add to cart', carts_path(cart: {shoe_id: shoe.id, is_active: true }), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
+                      <%= link_to 'Buy', carts_path(cart: {shoe_id: shoe.id, is_active: true}), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
                       
                       <%#= link_to 'Add to cart', order_shoes_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
                       <%#= link_to 'Buy', order_shoes_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
                       
                     </p>
                       <%= link_to "close view", shoe %>
-
               </div>
                 
                   
@@ -88,7 +89,4 @@
   
   </section>
 </div>
-<%# if current_admin_user.admin %>
-<%= link_to "New shoe", new_shoe_path %>
-<%#end%>
   

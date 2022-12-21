@@ -13842,3 +13842,26 @@ textarea.form-control {
     stroke-dashoffset: -136px;
   }
 }
+
+.shoe-price {
+  font-size: 18px !important;
+}
+
+.ftco-section .two {
+  display: none;
+}
+
+#proceed-to-checkout {
+  color: white !important;
+}
+
+#proceed-to-checkout:hover {
+  color: #dbcc8f !important;
+  background-color: white;
+  border-color: #dbcc8f !important;
+}
+
+
+  .link {
+    list-style-type: none;
+  }

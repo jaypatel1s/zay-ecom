@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_14_071240) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_18_111613) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -43,10 +43,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_071240) do
     t.bigint "user_id", null: false
     t.bigint "shoe_id", null: false
     t.integer "quantity"
-    t.integer "size"  
+    t.integer "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shoe_id"], name: "ind ex_carts_on_shoe_id"
+    t.boolean "is_active", default: false
+    t.index ["shoe_id"], name: "index_carts_on_shoe_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -66,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_071240) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "cart_id", null: false
+    t.integer "quantity"
+    t.integer "size"
     t.index ["cart_id"], name: "index_order_shoes_on_cart_id"
     t.index ["order_id"], name: "index_order_shoes_on_order_id"
     t.index ["shoe_id"], name: "index_order_shoes_on_shoe_id"
@@ -77,6 +80,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_071240) do
     t.decimal "discount", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "email"
+    t.text "address"
+    t.string "pay_method"
+    t.boolean "terms_and_conditions", default: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -97,7 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_071240) do
     t.string "name"
     t.string "city"
     t.string "country"
-    t.integer "mobile"
+    t.string "mobile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -107,6 +115,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_071240) do
     t.datetime "remember_created_at"
     t.string "address"
     t.integer "postcode"
+    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

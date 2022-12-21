@@ -11,6 +11,11 @@
 
   <body class="goto-here vh-100">
     <%= render 'layouts/header'%>
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info mb-0">
+        <%= msg %>
+      </div>
+    <% end %>
 
     <%= yield %>
 

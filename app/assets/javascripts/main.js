@@ -374,4 +374,12 @@ $(document).ready(function () {
 		$("#quantity").val(quantity - 1);
 	  }
 	});
-  });
+});
+
+
+
+
+
+
+
+

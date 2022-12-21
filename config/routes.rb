@@ -14,4 +14,4 @@ Rails.application.routes.draw do
   resources :shoes
   resources :orders
   resources :carts, only: [:index, :create, :destroy, :update]
-end
+end 

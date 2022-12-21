@@ -110,10 +110,8 @@
                 </div>
               </div>
               <p>
-                <%= link_to 'Add to cart', carts_path(shoe_id: @shoe.id), method: :post ,class:"btn btn-primary py-3 px-5"%>
-                <%# <a href="cart.html" class="btn btn-black py-3 px-5 mr-2">Add to Cart</a> %>
-                <%# <a href="cart.html" class="btn btn-primary py-3 px-5">Buy now</a> %>
-                <%= link_to 'Buy now', carts_path(shoe_id: @shoe.id), method: :post ,class:"btn btn-primary py-3 px-5"%>
+                <%= link_to 'Add to cart', carts_path(cart: { shoe_id: @shoe.id, is_active: true }), method: :post, class: "btn btn-primary py-3 px-5" %>
+                <%= link_to 'Buy now', carts_path(cart: { shoe_id: @shoe.id, is_active: true }), method: :post, class: "btn btn-primary py-3 px-5" %>
               </p>
             </div>
           </div>

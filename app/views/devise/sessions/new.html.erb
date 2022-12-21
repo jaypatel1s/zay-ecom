@@ -30,10 +30,48 @@
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <form>
+                  <span class="notice mb-3"><%= notice %></span><br>
+                  <span class="alert mb-3"><%= alert %></span> 
+                <div class="divider d-flex align-items-center">
+                </div>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <%= f.label :email, class:'form_lable', for:'form3Example3', value: 'Email address'%><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", id:'form3Example3', class:'form-control form-control-lg', placeholder: 'Enter a valid email address'%>
+                </div>
+                                                                      
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                  <%= f.label :password, class:'form_lable', for: 'form3Example4', value:'Password' %><br />
+                  <%= f.password_field :password, autocomplete: "current-password", id:"form3Example4", class:"form-control form-control-lg",
+                    placeholder:"Enter password" %>
+                  </div>
+      
+                <div class="d-flex justify-content-between align-items-center">
+                  <!-- Checkbox -->
+                  <div class="form-check mb-0">
+                        <% if devise_mapping.rememberable? %>
+                          
+                            <%= f.check_box :remember_me, class:"form-check-input me-2", id:"form2Example3"%>
+                            <%= f.label :remember_me, class:"form-check-label", for:"form2Example3"%>
+                          
+                        <% end %>
+                  </div>
+                  <%= link_to "Forgot your password?", new_password_path(resource_name)%><br />
+                </div>
+      
+                <div class="text-center text-lg-start mt-4 pt-2">
+                  <div class='actions row'>
+                   <%= f.submit 'Log in', class:'btn btn-primary btn-lg ml-3', style:"padding-left: 2.5rem; padding-right: 2.5rem;"%> 
+                   <%= link_to 'Registration', new_registration_path(resource_name), class:'btn btn-primary btn-lg mx-2', style:"padding-left: 2.5rem; padding-right: 2.5rem;"%>
+                   <%= link_to 'Log out',destroy_session_path(resource_name), class:'btn btn-primary btn-lg mt-2 mx-3', style:"padding-left: 2.5rem; padding-right: 2.5rem;"%>
+                  </div>
+                </div>
+
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start mt-5">
-                  <p class="lead fw-normal mb-0 me-3">Sign in with</p>
+                  <p class="lead fw-normal me-3 mt-5">Sign in with</p>
                   <ul
-                    class="ftco-footer-social list-unstyled float-md-left float-lft mt-5"
+                    class="ftco-footer-social list-unstyled float-md-left float-lft mt-5 ml-5"
                   >
                     <li class="ftco-animate">
                       <a href="#"><span class="icon-twitter"></span></a>
@@ -46,62 +84,6 @@
                     </li>
                   </ul>
                 </div>
-                  <span class="notice"><%= notice %></span><br>
-                  <span class="alert"><%= alert %></span> 
-                <div class="divider d-flex align-items-center my-4">
-                  <p class="text-center fw-bold mx-3 mb-0">Or</p>
-                </div>
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                    <%= f.label :email, class:'form_lable', for:'form3Example3', value: 'Email address'%><br />
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", id:'form3Example3', class:'form-control form-control-lg', placeholder: 'Enter a valid email address'%>
-                  <%# <input type="email" id="form3Example3" class="form-control form-control-lg"
-                    placeholder="Enter a valid email address" />
-                  <label class="form-label" for="form3Example3">Email address</label> %>
-                </div>
-                                                                      
-                <!-- Password input -->
-                <div class="form-outline mb-3">
-                  <%= f.label :password, class:'form_lable', for: 'form3Example4', value:'Password' %><br />
-                  <%= f.password_field :password, autocomplete: "current-password", id:"form3Example4", class:"form-control form-control-lg",
-                    placeholder:"Enter password"%>
- 
-                  
-                  <%# <input type="password" id="form3Example4" class="form-control form-control-lg"
-                    placeholder="Enter password" />
-                  <label class="form-label" for="form3Example4">Password</label> %>
-                  </div>
-      
-                <div class="d-flex justify-content-between align-items-center">
-                  <!-- Checkbox -->
-                  <div class="form-check mb-0">
-                        <% if devise_mapping.rememberable? %>
-                          
-                            <%= f.check_box :remember_me, class:"form-check-input me-2", id:"form2Example3"%>
-                            <%= f.label :remember_me, class:"form-check-label", for:"form2Example3"%>
-                          
-                        <% end %>
-
-                    <%# <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                    <label class="form-check-label" for="form2Example3">
-                      Remember me
-                    </label> %>
-                  </div>
-                  <%= link_to "Forgot your password?", new_password_path(resource_name)%><br />
-
-                  <%# <a href="forgot.html" class="text-body">Forgot password?</a> %>
-                </div>
-      
-                <div class="text-center text-lg-start mt-4 pt-2">
-                  <div class='actions row'>
-                   <%= f.submit 'Log in', class:'btn btn-primary btn-lg ml-3', style:"padding-left: 2.5rem; padding-right: 2.5rem;"%> 
-                   <%= link_to 'Registration', new_registration_path(resource_name), class:'btn btn-primary btn-lg mx-2', style:"padding-left: 2.5rem; padding-right: 2.5rem;"%>
-                   <%= link_to 'Log out',destroy_session_path(resource_name), class:'btn btn-primary btn-lg mt-2 mx-3', style:"padding-left: 2.5rem; padding-right: 2.5rem;"%>
-                  </div>
-                  <%# <button type="button" class="btn btn-primary btn-lg"
-                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button> %>
-                  <%# <p class="fw-bold mt-2 pt-1 mb-0">Don't have an account?</p> %>
-                </div>
               </form>
             </div>
           </div>
@@ -109,7 +91,6 @@
       </section>  
 <% end %>
 
-<%#= render "devise/shared/links" %>
 
 
 
