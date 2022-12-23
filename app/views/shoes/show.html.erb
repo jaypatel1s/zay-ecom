@@ -52,7 +52,7 @@
                 times and everything that was left from its origin would be the
                 word "and" and the Little Blind Text should turn around and return
                 to its own, safe country. But nothing the copy said could convince
-                her and so it didn’t take long until a few insidious Copy Writers
+                her and so it didn't take long until a few insidious Copy Writers
                 ambushed her, made her drunk with Longe and Parole and dragged her
                 into their agency, where they abused her for their.
               </p>
@@ -64,10 +64,17 @@
                         <span class="ion-ios-arrow-down"></span>
                       </div>
                       <select name="" id="" class="form-control">
-                        <option value="">Small</option>
-                        <option value="">Medium</option>
-                        <option value="">Large</option>
-                        <option value="">Extra Large</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                        <option value="">6</option>
+                        <option value="">7</option>
+                        <option value="">8</option>
+                        <option value="">9</option>
+                        <option value="">10</option>
+                        <option value="">11</option>
+                        <option value="">12</option>
                       </select>
                     </div>
                   </div>
@@ -81,7 +88,7 @@
                       data-type="minus"
                       data-field=""
                     >
-                      <span class="ion-ios-remove"></span>
+                      <span class="ion-ios-remove">-</span>
                     </button>
                   </span>
                   <input
@@ -100,7 +107,7 @@
                       data-type="plus"
                       data-field=""
                     >
-                      <span class="ion-ios-add"></span>
+                      <span class="ion-ios-add">+</span>
                     </button>
                   </span>
                 </div>
@@ -369,15 +376,13 @@
             </div>
           </div>
 
-        
           <div class="text-center mt-5">
-                      <%= link_to "Edit", edit_shoe_path(@shoe) %> |
-                      <%= link_to "Back", shoes_path %>
-
-                      <%= button_to "Destroy", @shoe, method: :delete %>
+              <%= link_to "Back", shoes_path, class:"btn btn-primary"%>
+              <% if current_user.is_admin? %>
+              <%= link_to "Edit", edit_shoe_path(@shoe)%>
+              <%= button_to "Destroy", @shoe, method: :delete %>
+              <% end %>
           </div>
-          
-          
       </div>
 </section>
 
@@ -387,16 +392,3 @@
 
 
 
-<%# <section class="ftco-section bg-light">
-    <div id="shoes" class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
-          <div class="product d-flex flex-column">
-              %>
-              <%#= render @shoe %>
-          <%# </div>
-        </div>
-      </div>        
-    </div> %>
-  
-<%# </section> %> 

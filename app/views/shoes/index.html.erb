@@ -1,92 +1,74 @@
 <div class="hero-wrap hero-bread" style="background-image: url(<%= asset_path 'bg_6.jpg'%>);">
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2">
-            <%= link_to 'home', home_index_path%>
-             <span>Shop</span></p>
-            <h1 class="mb-0 bread">Shop</h1>
-            <p style="color: green"><%= notice %></p>
-          </div>
-        </div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate text-center">
+        <p class="breadcrumbs"><span class="mr-2">
+        <%= link_to 'home', home_index_path%>
+          <span>Shop</span></p>
+        <h1 class="mb-0 bread">Shop</h1>
+        <p style="color: green"><%= notice %></p>
+        <%#= form_tag shoes_path, class:"form-group d-inline-flex", :method => "get" do %>
+          <%#= label_tag(:search, "search category like formal, casual, sports etc..") %>
+          <%#= text_field_tag :search, params[:search], style:"padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: 1px solid gray;"%>
+          <%#= submit_tag("search", :name => nil, class:"btn btn-primary submit-search text-center mx-2") %>
+        <%# end %>
       </div>
-</div>
-
-  <section class="ftco-section bg-light">
-     <div class="container">
-        <div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h2 class="mb-4">variants of shoes</h2>
-            <p>
-              Far far away, behind the word mountains, far from the countries
-              Vokalia and Consonantia
-            </p>
-          </div>
-        </div>
-      </div>
-    <div id="shoes" class="container">
-        <%#= debug session [:cart] %>
-
-            <div class="row">
-       <% @shoes.each do |shoe| %>
-          <%# next if shoe.id != 19 %>
-            <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
-              <div class="product d-flex flex-column">
-
-
-                  <a href="#" class="img-prod">
-                      <% if shoe.file.present? %>
-                        <%= image_tag shoe.file, class: 'img-fluid' %>
-                        <div class="overlay"></div>
-                      <% end %>
-                  </a>
-
-              <div class="text py-3 pb-4 px-3">
-                    <div class="d-flex">
-                      <div class="cat">
-                        <span>Lifestyle</span>
-                      </div>
-                      <div class="rating">
-                        <p class="text-right mb-0">
-                          <a href="#"><span class="ion-ios-star-outline"></span></a>
-                          <a href="#"><span class="ion-ios-star-outline"></span></a>
-                          <a href="#"><span class="ion-ios-star-outline"></span></a>
-                          <a href="#"><span class="ion-ios-star-outline"></span></a>
-                          <a href="#"><span class="ion-ios-star-outline"></span></a>
-                        </p>
-                      </div>
-                    </div>
-                      
-                    
-                    <h3><a href="#"><%= shoe.name%></a></h3>
-                    <div class="pricing">
-                      <p class="price"><span class="fa fa-rupee shoe-price"> <%= shoe.price%></span></p>
-                    </div>
-                    <p class="bottom-area d-flex px-3">
-                                           
-                      <%= link_to 'Add to cart', carts_path(cart: {shoe_id: shoe.id, is_active: true }), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
-                      <%= link_to 'Buy', carts_path(cart: {shoe_id: shoe.id, is_active: true}), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
-                      
-                      <%#= link_to 'Add to cart', order_shoes_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
-                      <%#= link_to 'Buy', order_shoes_path(shoe_id: shoe.id), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
-                      
-                    </p>
-                      <%= link_to "close view", shoe %>
-              </div>
-                
-                  
-                  
-                    <%#= render shoe %> 
-                    <%# <p> %>
-                    <%# </p> %>
-              </div>
-            </div>
-      <% end %>
-
-          </div>
-
     </div>
-  
-  </section>
+  </div>
 </div>
+<section class="ftco-section bg-light">
+  <div class="container">
+    <div class="row justify-content-center mb-3 pb-3">
+      <div class="col-md-12 heading-section text-center ftco-animate">
+        <h2 class="mb-4">variants of shoes</h2>
+        <p>
+          Far far away, behind the word mountains, far from the countries
+          Vokalia and Consonantia
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="shoes" class="container">
+    <div class="row">
+      <% @shoes.each do |shoe| %>
+      <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
+        <div class="product d-flex flex-column">
+          <a href="#" class="img-prod">
+              <% if shoe.file.present? %>
+                <%= image_tag shoe.file, class: 'img-fluid' %>
+                <div class="overlay"></div>
+              <% end %>
+          </a>
+          <div class="text py-3 pb-4 px-3">
+            <div class="d-flex">
+              <div class="cat">
+                <span>Lifestyle</span>
+              </div>
+              <div class="rating">
+                <p class="text-right mb-0">
+                  <a href="#"><span class="ion-ios-star-outline"></span></a>
+                  <a href="#"><span class="ion-ios-star-outline"></span></a>
+                  <a href="#"><span class="ion-ios-star-outline"></span></a>
+                  <a href="#"><span class="ion-ios-star-outline"></span></a>
+                  <a href="#"><span class="ion-ios-star-outline"></span></a>
+                </p>
+              </div>
+            </div>     
+                <h3><a href="#"><%= shoe.name%></a></h3>
+                <div class="pricing">
+                  <p class="price"><span class="fa fa-rupee shoe-price"> <%= shoe.price%></span></p>
+                </div>
+                <p class="bottom-area d-flex px-3">                    
+                  <%= link_to 'Add to cart', carts_path(cart: {shoe_id: shoe.id, is_active: true }), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
+                  <%= link_to 'Buy', carts_path(cart: {shoe_id: shoe.id, is_active: true}), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
+                </p>
+                  <%= link_to "close view", shoe, class:"btn btn-primary pt-2 pb-2"%>
+            </div>          
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</section>
   

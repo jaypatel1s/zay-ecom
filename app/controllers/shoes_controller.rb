@@ -1,9 +1,10 @@
 class ShoesController < ApplicationController
+  before_action :authenticate_user!
   before_action :check_is_admin_user, except: %i[ index show ]
   before_action :set_shoe, only: %i[ show edit update destroy ]
 
   def index
-    @shoes = Shoe.all
+    @shoes = Shoe.search(params[:search])
   end
 
   def show
@@ -60,6 +61,6 @@ class ShoesController < ApplicationController
     end
 
     def shoe_params
-      params.require(:shoe).permit(:category_id, :name, :brand, :size, :active, :price, :discount, :file)
+      params.require(:shoe).permit(:category_id, :name, :brand, :size, :active, :price, :discount, :file, :search)
     end
 end

@@ -46,20 +46,20 @@
                       <div class="input-group mb-3">  
                         <span class= "quantity form-control input-number">
                           <input class="mt-3 text-center shoe-quantity" type= "number" name = <%= "test[quantity_#{cart.id}]" %> data-id="<%= cart.id %>" value="<%= cart.quantity %>" min="1">              
-                          <%#= link_to 'update', carts_path(:id => cart), method: :patch, class:"btn btn-primary py-2 px-2"%>
                         </span>
                       </div>
                     </td>   
+
                     <td class="quantity">   
                       <div class="input-group mb-3">  
                         <span class= "quantity form-control input-number">
-                          <input class="mt-3 text-center shoe-size" type= "number" name = <%= "test[size_#{cart.id}]" %> data-id="<%= cart.id %>" value="<%= cart.size %>" min="1">              
+                          <input class="mt-3 text-center shoe-size" type= "number" name = <%= "test[size_#{cart.id}]" %> data-id="<%= cart.id %>" value="<%= cart.size %>" min="2" max="12">              
                         </span>
                       </div>
                     </td>
                     <td class="total"><span class="fa fa-rupee shoe-price"><%= cart.shoe.discount%></span></td>
                     <td class="total"><span class="fa fa-rupee shoe-price"><%= cart.shoe.price - cart.shoe.discount%></span></td>
-                  </tr><!-- END TR-->
+                    </tr><!-- END TR-->
                 <% end %>
               </tbody>
             </table>
@@ -67,10 +67,10 @@
           <%# billing %>
           <div class="row justify-content-start">
             <div class='col col-lg-7 col-md-6 mt-5 cart-wrap ftco-animate'>
-                <%#= link_to 'update cart', carts_path,  class:'btn btn-primary py-3 px-4' %>
+                <%= link_to 'update cart', carts_path, method: :put, class:'btn btn-primary py-2 px-2' %>
             </div>
             <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
-              <p class="text-center"><%= link_to 'Continue Shopping', shoes_path, class:'btn btn-primary py-3 px-4'%></p>
+              <p class="text-center"><%= link_to 'Continue Shopping', shoes_path, class:'btn btn-primary py-2 px-2 '%></p>
               <div class="cart-total mb-3">
                 <h3>Cart Totals</h3>
                 <p class="d-flex">
@@ -83,8 +83,10 @@
                     <span class = "fa fa-rupee shoe-price"><%= current_user.cart_total_with_discount %> </span>
                 </p>
               </div>
+              <% if current_user.orders.present?%>
                 <p class="text-center"><button class='btn btn-primary py-2 px-2' type="button" id="proceed-to-checkout">Proceed to Checkout</button></p>
                 <span><%= link_to "Your orders", orders_path, class:"btn btn-primary py-2 px-2" %></span>
+              <% end %>
             </div>
           </div>
         </div>

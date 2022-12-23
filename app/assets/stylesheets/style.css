@@ -13863,5 +13863,7 @@ textarea.form-control {
 
 
   .link {
-    list-style-type: none;
+    list-style-type: none !important;
+    color: black !important;
   }
+  

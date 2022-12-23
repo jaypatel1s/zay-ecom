@@ -7,13 +7,21 @@
                         <div class="icon mr-2 d-flex justify-content-center align-items-center">
                             <span class="icon-phone2"></span>
                         </div>
-                        <span class="text">+91 8421370161</span>
+                        <% if user_signed_in? %>
+                        <span class="text"><%= current_user.mobile %></span>
+                        <% else %>
+                        <span class="text">8421370161</span>
+                        <% end %>
                     </div>
                     <div class="col-md pr-4 d-flex topper align-items-center">
                         <div class="icon mr-2 d-flex justify-content-center align-items-center">
                             <span class="icon-paper-plane"></span>
                         </div>
-                        <span class="text">tejas.raut@softices.com</span>
+                        <% if user_signed_in? %>
+                        <span class="text"><%= current_user.email %></span>
+                        <% else  %>
+                        <span class="text">rauttejas066@gmail.com</span>
+                        <% end %>
                     </div>
                     <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
                         <span class="text">3-5 Business days delivery &amp; Free Returns</span>
@@ -31,7 +39,7 @@
     -->
 
 <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-light " id="ftco-navbar">
-    <div class="container">
+    <div class="container-fluid">
         <%= link_to 'Shoeshop', root_path, class:'navbar-brand' %>
         <%# <a class="navbar-brand" href="index.html">Shoeshop</a> %>
         <button
@@ -41,24 +49,28 @@
           data-target="#ftco-nav"
           aria-controls="ftco-nav"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
 
         <div class="col-sm-5 col-md-3 mt-3">
-          <form action="#" class="form-group d-inline-flex">
+            <%= form_tag shoes_path, class:"form-group d-inline-flex", :method => "get" do %>
+                <%#= label_tag(:search, "search category like formal, casual, sports etc..") %>
+                <%= text_field_tag :search, params[:search], style:"padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: 1px solid gray;", placeholder:"Search categories like sports etc... "%>
+                <%= submit_tag("search", :name => nil, class:"btn btn-primary submit-search text-center mx-2") %>
+            <% end %>
+          <%# <form action="#" class="form-group d-inline-flex">
             <input
               list="shoes"
               type="search"
               class="px-2"
               style="padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: none;"
-              placeholder="search"
+              placeholder="Search Shoe"
             />
             <datalist id="shoes">
-              <option>Mens</option>
-              <option>Womens</option>
-              <option>Kids</option>
+              <option>Formals</option>
+              <option>Sports</option>
+              <option>Casuals</option>
             </datalist>
             <button
               class="btn btn-primary submit-search text-center"
@@ -67,7 +79,7 @@
             >
               <i class="icon-search"></i>
             </button>
-          </form>
+          </form>    %>
         </div>
 
         <div class="collapse navbar-collapse" id="ftco-nav">

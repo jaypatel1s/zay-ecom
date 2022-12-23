@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'home/about'
   get 'home/blog'
   get 'home/contacts'
- 
+  
   resources :order_shoes
   resources :shoes
   resources :orders

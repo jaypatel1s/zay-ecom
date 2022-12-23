@@ -17,26 +17,28 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = current_user.orders.build(order_params)
-    respond_to do |format|      
-      if @order.save
-        quantity_size_array = params[:test].as_json.to_a
-        quantity_size_array.each_slice(2) do |qs|
-          cart_id = qs.first.first.scan(/\d/).join('')
-          cart = Cart.find_by(id: cart_id)
-          next if cart.blank?
+    if current_user.carts.present? && 
+      @order = current_user.orders.build(order_params)
+      respond_to do |format|      
+        if @order.save
+          quantity_size_array = params[:test].as_json.to_a
+          quantity_size_array.each_slice(2) do |qs|
+            cart_id = qs.first.first.scan(/\d/).join('')
+            cart = Cart.find_by(id: cart_id)
+            next if cart.blank?
 
-          @order.order_shoes.create(cart_id: cart.id, shoe_id: cart.shoe_id, 
-            price: cart.shoe.price, discount: cart.shoe.discount, active: true, 
-            quantity: qs.first.last, size: qs.last.last
-          ) 
-      end      
-    
-        format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+            @order.order_shoes.create(cart_id: cart.id, shoe_id: cart.shoe_id, 
+              price: cart.shoe.price, discount: cart.shoe.discount, active: true, 
+              quantity: qs.first.last, size: qs.last.last
+            ) 
+        end      
+      
+          format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
+          format.json { render :show, status: :created, location: @order }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @order.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

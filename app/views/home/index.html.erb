@@ -21,12 +21,12 @@
                     <p class="notice"><%= notice %></p>
                     <p class="alert"><%= alert %></p>   
                   </div>
-                  <div>
-                      <ul>
+                  <div class="link">
+                      <ul>  
                         <% if user_signed_in? %>
                           <li><%= link_to "Hi, #{current_user.email}", edit_user_registration_path %></li>
                           <li>You have visited this cite <%= @visit_count %> times</li>
-                        <% end %>
+                        <% end %> 
                       </ul>
                   </div>  
                 </div>
@@ -51,13 +51,12 @@
                     supplies it with the necessary regelialia. It is a
                     paradisematic country.
                   </p>
-
                   <p><a href="#" class="btn-custom">Discover Now</a></p>
-                  <div>
-                    <p class="notice"><%= notice %></p>
-                    <p class="alert"><%= alert %></p>   
-                  </div>
-                  <div>
+                <div>
+                  <p class="notice"><%= notice %></p>
+                  <p class="alert"><%= alert %></p>   
+                </div>
+                <div class="link">
                   <ul>
                     <% if user_signed_in? %>
                       <li><%= link_to "Hi, #{current_user.email}", edit_user_registration_path %></li>
@@ -132,6 +131,11 @@
           Far far away, behind the word mountains, far from the countries
           Vokalia and Consonantia
         </p>
+        <%#= form_tag home_index_path, class:"form-group d-inline-flex", :method => "get" do %>
+          <%#= label_tag(:search, "search category like formal, casual, sports etc..") %>
+          <%#= text_field_tag :search, params[:search], style:"padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: 1px solid gray"%>
+          <%#= submit_tag("search", :name => nil, class:"btn btn-primary submit-search text-center mx-2") %>
+        <%# end %>
       </div>
     </div>
   </div>

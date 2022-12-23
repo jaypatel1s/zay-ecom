@@ -11,4 +11,20 @@ class Shoe < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :active, :size, presence:true  
+
+  
+
+  def self.search(search)
+    if search
+      category_type = Category.find_by(name: search)
+      if category_type
+        self.where(category_id: category_type)
+      else
+        @shoes = Shoe.all
+      end
+    else
+      @shoes = Shoe.all
+    end
+  end
+
 end

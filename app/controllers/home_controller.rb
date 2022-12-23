@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
 
   def index
-    @shoes = Shoe.all
+    @shoes = Shoe.search(params[:search])
     @category = Category.all
   end
 
@@ -18,7 +18,7 @@ class HomeController < ApplicationController
   end
   
   private
-
+  
   def initialize_session
     session[:visit_count] ||= 0 #on first visit initialize
   end

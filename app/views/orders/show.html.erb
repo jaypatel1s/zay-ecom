@@ -23,7 +23,7 @@
             <tr class="text-center">
               <th>Order ID</th>
               <th>Shoe ID</th>
-              <th>Cart ID</th>
+              <%# <th>Cart ID</th> %>
               <th>Price</th>
               <th>Discount</th>
               <th>Active</th>
@@ -36,7 +36,6 @@
               <tr class="text-center">
                 <td class="price"><%= os.order_id %></td>
                 <td class="price"><%= os.shoe_id %></td>
-                <td class="price"><%= os.cart_id %></td>
                 <td class="price"><%= os.price * os.quantity%></td>
                 <td class="price"><%= os.discount %></td>
                 <td class="price"><%= os.active %></td>
