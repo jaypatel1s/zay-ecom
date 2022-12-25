@@ -13,6 +13,7 @@
 </div>
 <section class="ftco-section">
       <div class="container">
+
           <div class="row">
             <div class="col-lg-6 mb-5 ftco-animate">
               <a href="images/product-1.png" class="image-popup prod-img-bg"
@@ -56,70 +57,66 @@
                 ambushed her, made her drunk with Longe and Parole and dragged her
                 into their agency, where they abused her for their.
               </p>
-              <div class="row mt-4">
-                <div class="col-md-6">
-                  <div class="form-group d-flex">
-                    <div class="select-wrap">
-                      <div class="icon">
-                        <span class="ion-ios-arrow-down"></span>
+              <%= form_tag carts_path, method: :post, id: "create_cart_form" do %>
+                <div class="row mt-4">
+                  <div class="col-md-6">
+                    <div class="form-group d-flex">
+                      <div class="select-wrap">
+                        <div class="icon">
+                          <span class="ion-ios-arrow-down"></span>
+                        </div>
+                        <%= select_tag 'cart[size]', options_for_select(Shoe::SHOE_SIZES, Shoe::SHOE_SIZES[6]), class: 'form-control' %>
                       </div>
-                      <select name="" id="" class="form-control">
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
-                        <option value="">6</option>
-                        <option value="">7</option>
-                        <option value="">8</option>
-                        <option value="">9</option>
-                        <option value="">10</option>
-                        <option value="">11</option>
-                        <option value="">12</option>
-                      </select>
                     </div>
                   </div>
+                  <div class="w-100"></div>
+                  <div class="input-group col-md-6 d-flex mb-3">
+                    <span class="input-group-btn mr-2">
+                      <button
+                        type="button"
+                        class="quantity-left-minus btn"
+                        data-type="minus"
+                        data-field=""
+                      >
+                        <span class="ion-ios-remove">-</span>
+                      </button>
+                    </span>
+                    <input
+                      type="number"
+                      id="quantity"
+                      name="cart[quantity]"
+                      class="quantity form-control"
+                      value="1"
+                      min="1"
+                      max="100"
+                    />
+                    <span class="input-group-btn ml-2">
+                      <button
+                        type="button"
+                        class="quantity-right-plus btn"
+                        data-type="plus"
+                        data-field=""
+                      >
+                        <span class="ion-ios-add">+</span>
+                      </button>
+                    </span>
+                  </div>
+                  <div class="w-100"></div>
+                  <div class="col-md-12">
+                    <p style="color: #000">80 piece available</p>
+                  </div>
                 </div>
-                <div class="w-100"></div>
-                <div class="input-group col-md-6 d-flex mb-3">
-                  <span class="input-group-btn mr-2">
-                    <button
-                      type="button"
-                      class="quantity-left-minus btn"
-                      data-type="minus"
-                      data-field=""
-                    >
-                      <span class="ion-ios-remove">-</span>
-                    </button>
-                  </span>
-                  <input
-                    type="text"
-                    id="quantity"
-                    name="quantity"
-                    class="quantity form-control input-number"
-                    value="1"
-                    min="1"
-                    max="100"
-                  />
-                  <span class="input-group-btn ml-2">
-                    <button
-                      type="button"
-                      class="quantity-right-plus btn"
-                      data-type="plus"
-                      data-field=""
-                    >
-                      <span class="ion-ios-add">+</span>
-                    </button>
-                  </span>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-md-12">
-                  <p style="color: #000">80 piece available</p>
-                </div>
-              </div>
-              <p>
-                <%= link_to 'Add to cart', carts_path(cart: { shoe_id: @shoe.id, is_active: true }), method: :post, class: "btn btn-primary py-3 px-5" %>
-                <%= link_to 'Buy now', carts_path(cart: { shoe_id: @shoe.id, is_active: true }), method: :post, class: "btn btn-primary py-3 px-5" %>
-              </p>
+                <input type='hidden', name='cart[shoe_id]', value=<%= @shoe.id %>>
+                <input type='hidden', name='cart[is_active]', value='true'>
+
+                <p>
+                  <%= submit_tag "Add to cart", class: "btn btn-primary py-3 px-5" %>
+                  <%= submit_tag "Buy now", class: "btn btn-primary py-3 px-5" %>
+
+                  <%#= button_to 'Add to cart', carts_path(cart: { shoe_id: @shoe.id, is_active: true }), method: :post, class: "btn btn-primary py-3 px-5" %>
+                  <%#= link_to 'Buy now', carts_path(cart: { shoe_id: @shoe.id, is_active: true }), method: :post, class: "btn btn-primary py-3 px-5" %>
+                </p>
+              <% end %>
             </div>
           </div>
 

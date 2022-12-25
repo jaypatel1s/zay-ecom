@@ -374,6 +374,36 @@ $(document).ready(function () {
 		$("#quantity").val(quantity - 1);
 	  }
 	});
+
+	$('.shoe-quantity').on('change', function () {
+		var shoe_quantity = $(this).val();
+		var cart_id = $(this).parents('.carts-list-div').find('.cart_id').val();
+		
+		$.ajax({
+			url: "/carts/" + cart_id + "/update_quantity",
+			type: "get",
+			data: { shoe_quantity: shoe_quantity },
+			success: function (data) { 
+				alert(data['message']);
+				window.location.reload();
+			},
+		});
+	});
+
+	$('.shoe-size').on('change', function () {
+		var shoe_size = $(this).val();
+		var cart_id = $(this).parents('.carts-list-div').find('.cart_id').val();
+		
+		$.ajax({
+			url: "/carts/" + cart_id + "/update_size",
+			type: "get",
+			data: { shoe_size: shoe_size },
+			success: function (data) { 
+				alert(data['message']);
+				window.location.reload();
+			},
+		});
+	});
 });
 
 

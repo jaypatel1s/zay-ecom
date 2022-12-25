@@ -35,6 +35,26 @@ class CartsController < ApplicationController
     end
   end
 
+  def update_quantity
+    cart = Cart.find_by(id: params[:id])
+    if cart.blank?
+      render json: { status: 'error', message: 'Cart not found' } and return
+    end
+
+    cart.update_attribute(:quantity, params[:shoe_quantity])
+    render json: { status: 'success', message: 'Quantity updated successfully' }
+  end
+
+  def update_size
+    cart = Cart.find_by(id: params[:id])
+    if cart.blank?
+      render json: { status: 'error', message: 'Cart not found' } and return
+    end
+
+    cart.update_attribute(:size, params[:shoe_size])
+    render json: { status: 'success', message: 'Size updated successfully' }
+  end
+
   private
     def set_cart
       @cart = current_user.carts.find_by(id: params[:id])

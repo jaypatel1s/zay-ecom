@@ -21,7 +21,6 @@
         <table class="table">
           <thead class="thead-primary">
             <tr class="text-center">
-              <th>Order ID</th>
               <th>Shoe ID</th>
               <%# <th>Cart ID</th> %>
               <th>Price</th>
@@ -34,10 +33,9 @@
           <tbody>
             <% @order_shoes.each do |os| %>
               <tr class="text-center">
-                <td class="price"><%= os.order_id %></td>
-                <td class="price"><%= os.shoe_id %></td>
-                <td class="price"><%= os.price * os.quantity%></td>
-                <td class="price"><%= os.discount %></td>
+                <td class="price"><%= os.shoe.name %></td>
+                <td class="price"><%= os.order.total %></td>
+                <td class="price"><%= os.order.discount %></td>
                 <td class="price"><%= os.active %></td>
                 <td class="price"><%= os.quantity %></td>
                 <td class="price"><%= os.size %></td>

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
-
+                                                
   def index
     @user_orders = current_user.orders
   end

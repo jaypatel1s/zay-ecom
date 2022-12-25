@@ -57,8 +57,9 @@
                         </span>
                       </div>
                     </td>
-                    <td class="total"><span class="fa fa-rupee shoe-price"><%= cart.shoe.discount%></span></td>
-                    <td class="total"><span class="fa fa-rupee shoe-price"><%= cart.shoe.price - cart.shoe.discount%></span></td>
+                    <td class="total"><span class="fa fa-rupee shoe-price"><%= cart.shoe.discount * cart.quantity %></span></td>
+                    <td class="total"><span class="fa fa-rupee shoe-price"><%= (cart.shoe.price * cart.quantity) - (cart.shoe.discount * cart.quantity) %></span></td>
+                    <input type='hidden', name='cart_id', class="cart_id" value=<%= cart.id %>>
                     </tr><!-- END TR-->
                 <% end %>
               </tbody>
@@ -67,7 +68,7 @@
           <%# billing %>
           <div class="row justify-content-start">
             <div class='col col-lg-7 col-md-6 mt-5 cart-wrap ftco-animate'>
-                <%= link_to 'update cart', carts_path, method: :put, class:'btn btn-primary py-2 px-2' %>
+                <%#= link_to 'update cart', carts_path, method: :put, class:'btn btn-primary py-2 px-2' %>
             </div>
             <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
               <p class="text-center"><%= link_to 'Continue Shopping', shoes_path, class:'btn btn-primary py-2 px-2 '%></p>
@@ -194,7 +195,7 @@
                       <div class="col-md-12">
                         <div class="radio">
                           <label
-                            ><input type="radio" name="order[pay_method]" value="direct_bank_transfer" class="mr-2" />
+                            ><input type="radio" name="order[pay_method]" value="direct_bank_transfer" class="mr-2" required='true' />
                             Direct Bank Transfer</label
                           >
                         </div>
@@ -204,7 +205,7 @@
                       <div class="col-md-12">
                         <div class="radio">
                           <label
-                            ><input type="radio" name="order[pay_method]" value="check_payment" class="mr-2" />
+                            ><input type="radio" name="order[pay_method]" value="check_payment" class="mr-2" required='true' />
                             Check Payment</label
                           >
                         </div>
@@ -214,7 +215,7 @@
                       <div class="col-md-12">
                         <div class="radio">
                           <label
-                            ><input type="radio" name="order[pay_method]" value="paypal" class="mr-2" />
+                            ><input type="radio" name="order[pay_method]" value="paypal" class="mr-2" required='true' />
                             Paypal</label
                           >
                         </div>
@@ -224,7 +225,7 @@
                       <div class="col-md-12">
                         <div class="checkbox">
                           <label
-                            ><input type="checkbox" name="order[terms_and_conditions]" class="mr-2" /> I
+                            ><input type="checkbox" name="order[terms_and_conditions]" class="mr-2" required='true' /> I
                             have read and accept the terms and conditions</label
                           >
                         </div>
