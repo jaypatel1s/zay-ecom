@@ -20,28 +20,26 @@
         <table class="table">
           <thead class="thead-primary">
             <tr class="text-center">
-              <th>Order ID</th>
-              <th>Total</th>
-              <th>Discount</th>
+              <th>Sr No.</th>
               <th>Name</th>
               <th>Email</th>
               <th>Address</th>
               <th>Payment Method</th>
-              <th>Terms and Conditions</th>
+              <th>Total</th>
+              <th>Discount</th>
               <th>Order details</th>
             </tr>
           </thead>
           <tbody>
-            <% @user_orders.each do |order| %>
+            <% @user_orders.each_with_index do |order, index| %>
               <tr class="text-center">
-                <td class="price"><%= order.id %></td>
-                <td class="price"><%= order.total%></td>
-                <td class="price"><%= order.discount %></td>
+                <td class="price"><%= index + 1 %></td>
                 <td class="price"><%= order.name %></td>
                 <td class="price"><%= order.email %></td>
                 <td class="price"><%= order.address %></td>
                 <td class="price"><%= order.pay_method %></td>
-                <td class="price"><%= order.terms_and_conditions %></td>
+                <td class="price"><%= order.total%></td>
+                <td class="price"><%= order.discount %></td>
                 <td class="price"><%= link_to "details", order, class:"btn btn-primary py-2 px-2" %></td>
               </tr>
             <% end %>

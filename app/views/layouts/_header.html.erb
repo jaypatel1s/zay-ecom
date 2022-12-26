@@ -56,8 +56,10 @@
         <div class="col-sm-5 col-md-3 mt-3">
             <%= form_tag shoes_path, class:"form-group d-inline-flex", :method => "get" do %>
                 <%#= label_tag(:search, "search category like formal, casual, sports etc..") %>
-                <%= text_field_tag :search, params[:search], style:"padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: 1px solid gray;", placeholder:"Search categories like sports etc... "%>
-                <%= submit_tag("search", :name => nil, class:"btn btn-primary submit-search text-center mx-2") %>
+                <%= text_field_tag :search, params[:search], style: "padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: 1px solid gray;", placeholder:"Search shoes"%>
+                <%= button_tag(type: "submit", class: "btn btn-primary submit-search text-center mx-2") do %>
+                    <i class="fa fa-search"></i>
+                <% end %>
             <% end %>
           <%# <form action="#" class="form-group d-inline-flex">
             <input

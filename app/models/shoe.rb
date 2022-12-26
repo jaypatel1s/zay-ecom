@@ -16,15 +16,9 @@ class Shoe < ApplicationRecord
 
   def self.search(search)
     if search
-      category_type = Category.find_by(name: search)
-      if category_type
-        self.where(category_id: category_type)
-      else
-        @shoes = Shoe.all
-      end
+      @shoes = Shoe.where("name like ?", "%#{search}%")
     else
       @shoes = Shoe.all
     end
   end
-
 end

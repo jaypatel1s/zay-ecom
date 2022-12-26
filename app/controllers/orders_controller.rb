@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
             cart_id = qs.first.first.scan(/\d/).join('')
             cart = Cart.find_by(id: cart_id)
             next if cart.blank?
-
+          
             @order.order_shoes.create(cart_id: cart.id, shoe_id: cart.shoe_id, 
               price: cart.shoe.price, discount: cart.shoe.discount, active: true, 
               quantity: qs.first.last, size: qs.last.last
