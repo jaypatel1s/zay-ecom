@@ -7,11 +7,6 @@
           <span>Shop</span></p>
         <h1 class="mb-0 bread">Shop</h1>
         <p style="color: green"><%= notice %></p>
-        <%#= form_tag shoes_path, class:"form-group d-inline-flex", :method => "get" do %>
-          <%#= label_tag(:search, "search category like formal, casual, sports etc..") %>
-          <%#= text_field_tag :search, params[:search], style:"padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: 1px solid gray;"%>
-          <%#= submit_tag("search", :name => nil, class:"btn btn-primary submit-search text-center mx-2") %>
-        <%# end %>
       </div>
     </div>
   </div>
@@ -20,7 +15,7 @@
   <div class="container">
     <div class="row justify-content-center mb-3 pb-3">
       <div class="col-md-12 heading-section text-center ftco-animate">
-        <h2 class="mb-4">variants of shoes</h2>
+        <h2 class="mb-4">Verieties Of Shoes</h2>
         <p>
           Far far away, behind the word mountains, far from the countries
           Vokalia and Consonantia
@@ -48,31 +43,31 @@
               <div class="rating">
                 <p class="text-right mb-0">
                   <a href="#"><span class="ion-ios-star-outline"></span></a>
-                  <a href="#"><span class="ion-ios-star-outline"></span></a>
+                  <a href="#"><span class="ion-ios-star-outline"></span></a>  
                   <a href="#"><span class="ion-ios-star-outline"></span></a>
                   <a href="#"><span class="ion-ios-star-outline"></span></a>
                   <a href="#"><span class="ion-ios-star-outline"></span></a>
                 </p>
               </div>
             </div>     
-                <h3><a href="#"><%= shoe.name%></a></h3>
-                <div class="pricing">
-                  <p class="price"><span class="fa fa-rupee shoe-price"> <%= shoe.price%></span></p>
-                </div>
-                <p class="bottom-area d-flex px-3">                    
-                  <%= link_to 'Add to cart', carts_path(cart: {shoe_id: shoe.id, is_active: true }), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
-                  <%= link_to 'Buy', carts_path(cart: {shoe_id: shoe.id, is_active: true}), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
-                </p>
-                  <%= link_to "close view", shoe, class:"btn btn-primary pt-2 pb-2"%>
-            </div>          
-          </div>
+              <h3><a href="#"><%= shoe.name%></a></h3>
+              <div class="pricing">
+                <p class="price"><span class="fa fa-rupee shoe-price"> <%= shoe.price%></span></p>
+              </div>
+              <p class="bottom-area d-flex px-3">                    
+                <%= link_to 'Add to cart', carts_path(cart: {shoe_id: shoe.id, is_active: true }), method: :post ,class:"ion-ios-add mr-1 add-to-cart text-center py-2 mr-1"%>
+                <%= link_to 'Buy', carts_path(cart: {shoe_id: shoe.id, is_active: true}), method: :post ,class:"ion-ios-cart buy-now text-center py-2"%>
+              </p>
+              <%= link_to "close view", shoe, class:"btn btn-primary mt-2"%>
+          </div>          
         </div>
-      <% end %>
-    <% else %>
-      <tr>
-        <td colspan="">Shoes not Available</td>
-      </tr>
+      </div>
     <% end %>
+      <% else %>
+        <tr>
+          <td colspan="">Shoes not Available</td>
+        </tr>
+      <% end %>
       </div>
     </div>
   </div>

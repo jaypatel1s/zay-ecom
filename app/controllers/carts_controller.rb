@@ -23,17 +23,17 @@ class CartsController < ApplicationController
 
   def update
     respond_to do |format|
-      @cart.update(quantity: params[:quantity], size: params[:size])
+      @cart.update(cart_params)
       format.html { redirect_to carts_url, notice: "Cart successfully updated." } 
     end
-  end
+  end 
 
   def destroy
     @cart.destroy
     respond_to do |format|
       format.html { redirect_to carts_url, notice: "product successfully removed." }
     end
-  end
+  end 
 
   def update_quantity
     cart = Cart.find_by(id: params[:id])

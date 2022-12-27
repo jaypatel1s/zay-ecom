@@ -13,7 +13,6 @@ class Shoe < ApplicationRecord
   validates :active, :size, presence:true  
   SHOE_SIZES = [2,3,4,5,6,7,8,9,10,11,12]
   
-
   def self.search(search)
     if search
       @shoes = Shoe.where("name like ?", "%#{search}%")

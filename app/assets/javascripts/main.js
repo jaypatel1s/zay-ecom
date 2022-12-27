@@ -375,6 +375,7 @@ $(document).ready(function () {
 	  }
 	});
 
+	
 	$('.shoe-quantity').on('change', function () {
 		var shoe_quantity = $(this).val();
 		var cart_id = $(this).parents('.carts-list-div').find('.cart_id').val();
@@ -405,6 +406,9 @@ $(document).ready(function () {
 		});
 	});
 });
+
+
+
 
 
 

@@ -23,10 +23,11 @@
             <tr class="text-center">
               <th>Sr No.</th>
               <th>name</th>
-              <th>total</th>
-              <th>Discount</th>
               <th>Quantity</th>
               <th>Size</th>
+              <th>price</th>
+              <th>Discount</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody>
@@ -34,10 +35,11 @@
               <tr class="text-center">
                 <td class="price"><%= index + 1 %></td>
                 <td class="price"><%= os.shoe.name %></td>
-                <td class="price"><%= os.order.total %></td>
-                <td class="price"><%= os.order.discount %></td>
                 <td class="price"><%= os.quantity %></td>
                 <td class="price"><%= os.size %></td>
+                <td class="price"><%= os.shoe.price * os.quantity%></td>
+                <td class="price"><%= os.shoe.discount * os.quantity%></td>
+                <td class="price"><%= (os.shoe.price * os.quantity) - (os.discount * os.quantity)%></td>
               </tr>
             <% end %>
           </tbody>
@@ -46,6 +48,7 @@
       </div>
       <div class="text-right mt-3">
         <%#= link_to "Edit this order", edit_order_path(@order) %> 
+        <%= link_to 'back', orders_path, class:"btn btn-primary py-2 px-2"%>
         <span><%=link_to "Cancel this order", @order, method: :delete, class:"btn btn-primary py-2 px-2"%> </span>       
       </div>
     </div>

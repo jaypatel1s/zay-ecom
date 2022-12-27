@@ -1,4 +1,4 @@
-<!-- *********** SECTION 1 START **************** -->
+    <!-- ************* SECTION 1 **************** -->
 <section id="home-section" class="hero">
   <div class="home-slider owl-carousel">
     <div class="slider-item js-fullheight">
@@ -21,11 +21,11 @@
                     <p class="notice"><%= notice %></p>
                     <p class="alert"><%= alert %></p>   
                   </div>
-                  <div class="link">
+                  <div>
                       <ul>  
                         <% if user_signed_in? %>
-                          <li><%= link_to "Hi, #{current_user.email}", edit_user_registration_path %></li>
-                          <li>You have visited this cite <%= @visit_count %> times</li>
+                          <%#= link_to "Hi, #{current_user.email}", edit_user_registration_path %>
+                          <li class="link">You have visited this cite <%= @visit_count %> times</li>
                         <% end %> 
                       </ul>
                   </div>  
@@ -53,14 +53,14 @@
                   </p>
                   <p><a href="#" class="btn-custom">Discover Now</a></p>
                 <div>
-                  <p class="notice"><%= notice %></p>
+                  <p class="notice"><%= notice %></p> 
                   <p class="alert"><%= alert %></p>   
                 </div>
-                <div class="link">
+                <div>
                   <ul>
                     <% if user_signed_in? %>
-                      <li><%= link_to "Hi, #{current_user.email}", edit_user_registration_path %></li>
-                      <li>You have visited this cite <%= @visit_count %> times</li>
+                      <%#= link_to "Hi, #{current_user.email}", edit_user_registration_path %>
+                      <li class="link">You have visited this cite <%= @visit_count %> times</li>
                     <% end %>
                   </ul>
                 </div>
@@ -72,7 +72,7 @@
     </div>
   </div>
 </section>
-    <!--************** SECTION 2 START ****************-->
+    <!-- ************* SECTION 2 **************** -->
 <section class="ftco-section ftco-no-pt ftco-no-pb">
   <div class="container">
     <div class="row no-gutters ftco-services">
@@ -121,7 +121,7 @@
     </div>
   </div>
 </section>
-    <!--********** SECTION 3 STARTS ***********-->
+    <!-- ************* SECTION 3 **************** -->
 <section class="ftco-section bg-light">
   <div class="container">
     <div class="row justify-content-center mb-3 pb-3">
@@ -131,11 +131,6 @@
           Far far away, behind the word mountains, far from the countries
           Vokalia and Consonantia
         </p>
-        <%#= form_tag home_index_path, class:"form-group d-inline-flex", :method => "get" do %>
-          <%#= label_tag(:search, "search category like formal, casual, sports etc..") %>
-          <%#= text_field_tag :search, params[:search], style:"padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: 1px solid gray"%>
-          <%#= submit_tag("search", :name => nil, class:"btn btn-primary submit-search text-center mx-2") %>
-        <%# end %>
       </div>
     </div>
   </div>
@@ -171,10 +166,10 @@
             <p class="price"><span class = "fa fa-rupee shoe-price"><%= shoe.price%></span></p>
             </div>
               <p class="bottom-area d-flex px-3">
-                <%= link_to 'Add to cart', carts_path(cart: { shoe_id: shoe.id, is_active: true}), method: :post, class:"ion-ios-add add-to-cart text-center py-2 mr-1"%>
+                <%= link_to 'Add to cart', carts_path(cart: { shoe_id: shoe.id, is_active: true}), method: :post, class:"ion-ios-add add-to-cart text-center py-2 mr-1" %>
                 <%= link_to 'Buy', carts_path(cart: { shoe_id: shoe.id, is_active: true }), method: :post, class:"ion-ios-cart buy-now text-center py-2"%>
               </p>
-              <%= link_to "close view", shoe %>
+              <%= link_to "close view", shoe , class:"btn btn-primary mt-2"%>
             </div>
           </div>
         </div>
@@ -182,7 +177,7 @@
     </div>
   </div>
 </section>
-    <!-- ************ SECTION 4 *************** -->
+    <!-- ************* SECTION 4 **************** -->
 <section class="ftco-section ftco-choose ftco-no-pb ftco-no-pt">
   <div class="container">
     <div class="row no-gutters">
@@ -259,7 +254,7 @@
     </div>
   </div>
 </section>
-    <!-- *************** SECTION 5 *************	 -->
+    <!-- ************* SECTION 5 **************** -->
 <section class="ftco-section ftco-deal bg-primary">
   <div class="container">
     <div class="row">
@@ -293,7 +288,7 @@
     </div>
   </div>
 </section>
-    <!--********************* SECTION 6 ********************-->
+    <!-- ************* SECTION 6 **************** -->
 <section class="ftco-section testimony-section">
   <div class="container">
     <div class="row">

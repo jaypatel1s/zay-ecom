@@ -1,16 +1,36 @@
-<h2>Forgot your password?</h2>
+
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div
+    class="hero-wrap hero-bread"
+    style="background-image: url(<%= asset_path 'bg_6.jpg'%>)"
+  >
+    <div class="container">
+      <div
+        class="row no-gutters slider-text align-items-center justify-content-center"
+      >
+        <div class="col-md-9 ftco-animate text-center">
+              <h2 class="text-dark">Forgot your password?</h2>
+        </div>
+      </div>
+    </div>
   </div>
+  <section class="vh-100 mt-5">
+    <div class="container-fluid">    
+      <div class="justify-content-center align-items-center w-50%">
+        <div class="field form-outline mb-4">
+          <%= f.label :email, class:'form_lable'%><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control form-control-lg w-50'%>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
+        <div class="actions">
+          <%= f.submit "Send me reset password instructions", class:'btn btn-primary'%>
+        </div>
+
+        <%= render "devise/shared/links" %>
+        <%= render "devise/shared/error_messages", resource: resource , class:"text-dark"%>
+      </div>
+    </div>
+  </section>
 <% end %>
 
-<%= render "devise/shared/links" %>

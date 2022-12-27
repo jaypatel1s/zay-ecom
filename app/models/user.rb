@@ -28,7 +28,6 @@ class User < ApplicationRecord
     self.carts.active.map { |cc| cc.shoe.price * cc.quantity }.sum 
   end
 
-    
   def calculate_discount_amount
     self.carts.active.map { |cc| cc.shoe.discount * cc.quantity }.sum
   end

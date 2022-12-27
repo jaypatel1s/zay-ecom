@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
-                                                
+
   def index
     @user_orders = current_user.orders
   end
@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     if current_user.carts.present? && 
       @order = current_user.orders.build(order_params)
       respond_to do |format|      
-        if @order.save
+        if @order.save          
           quantity_size_array = params[:test].as_json.to_a
           quantity_size_array.each_slice(2) do |qs|
             cart_id = qs.first.first.scan(/\d/).join('')

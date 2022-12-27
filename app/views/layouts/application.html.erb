@@ -12,8 +12,11 @@
   <body class="goto-here vh-100">
     <%= render 'layouts/header'%>
     <% flash.each do |type, msg| %>
-      <div class="alert alert-info mb-0">
+      <div class="alert alert-info mb-0" role="alert">
         <%= msg %>
+        <button type="button" class="close" data-dismiss="alert" area-label="close"> 
+          <span area-hidden="true">&times;</span>
+        </button> 
       </div>
     <% end %>
 

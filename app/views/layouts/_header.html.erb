@@ -52,44 +52,20 @@
           aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
-
         <div class="col-sm-5 col-md-3 mt-3">
             <%= form_tag shoes_path, class:"form-group d-inline-flex", :method => "get" do %>
-                <%#= label_tag(:search, "search category like formal, casual, sports etc..") %>
                 <%= text_field_tag :search, params[:search], style: "padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: 1px solid gray;", placeholder:"Search shoes"%>
                 <%= button_tag(type: "submit", class: "btn btn-primary submit-search text-center mx-2") do %>
                     <i class="fa fa-search"></i>
                 <% end %>
             <% end %>
-          <%# <form action="#" class="form-group d-inline-flex">
-            <input
-              list="shoes"
-              type="search"
-              class="px-2"
-              style="padding: 2px; width: 300px; border-radius: 8px;height: 35px; border: none;"
-              placeholder="Search Shoe"
-            />
-            <datalist id="shoes">
-              <option>Formals</option>
-              <option>Sports</option>
-              <option>Casuals</option>
-            </datalist>
-            <button
-              class="btn btn-primary submit-search text-center"
-              style="margin-left: 5px"
-              type="submit"
-            >
-              <i class="icon-search"></i>
-            </button>
-          </form>    %>
         </div>
-
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <%= link_to 'home', root_path,  class:'nav-link' %>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <%= link_to 'shop', shoes_path,  class:'nav-link' %>
                 </li>
                 <li class="nav-item">
