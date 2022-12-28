@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :carts
   has_many :shoes
 
@@ -23,7 +23,7 @@ class User < ApplicationRecord
       root_path 
     end
   end
-
+  
   def cart_total
     self.carts.active.map { |cc| cc.shoe.price * cc.quantity }.sum 
   end

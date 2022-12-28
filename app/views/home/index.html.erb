@@ -24,7 +24,7 @@
                   <div>
                       <ul>  
                         <% if user_signed_in? %>
-                          <%#= link_to "Hi, #{current_user.email}", edit_user_registration_path %>
+                          <%= link_to "Hi, #{current_user.email}", edit_user_registration_path , class:"link"%>
                           <li class="link">You have visited this cite <%= @visit_count %> times</li>
                         <% end %> 
                       </ul>
@@ -59,7 +59,7 @@
                 <div>
                   <ul>
                     <% if user_signed_in? %>
-                      <%#= link_to "Hi, #{current_user.email}", edit_user_registration_path %>
+                      <%= link_to "Hi, #{current_user.email}", edit_user_registration_path, class:"link"%>
                       <li class="link">You have visited this cite <%= @visit_count %> times</li>
                     <% end %>
                   </ul>
