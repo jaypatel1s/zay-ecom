@@ -1,0 +1,92 @@
+gu:
+  layouts:
+    header: 
+      buisiness: "3-5 વ્યવસાય દિવસની ડિલિવરી"
+      free: "મફત શિપિંગ"
+
+    footer:
+      follow: "અમને અનુસરો instagram"
+      minishop: "મિનીશોપ"
+      menu: "મેનુ"
+      shop: "દુકાન"
+      about: "વિશે"
+      journal: "જર્નલ"
+      contact_us: "અમારો સંપર્ક કરો"
+      help: "મદદ"
+      shipping_information: "વહાણ પરિવહન"
+      returns: "પરત કરે છે"  
+      exchange: "વિનિમય"
+      terms: "શરતો"
+      conditions: "સ્થિતિ"
+      privacy_policy: "ગોપનીયતા નીતિ"
+      faqs: "પ્રશ્નો"
+      contacts: "સંપર્કો"
+      have: "એક પ્રશ્ન છે?"
+     
+
+  home:
+    index: 
+      index_head: "નવા શૂઝનું આગમન" 
+      subheading: "#પેટા-શીર્ષક"
+      subheading2: "જૂતા સંગ્રહ 2019"
+      subheading3: "નવા જૂતા શિયાળામાં સંગ્રહ"
+      custombtn: "હવે શોધો"
+      heading: "મફત શિપિંગ"
+      heading2: "આધાર ગ્રાહકો"
+      heading3: "સુરક્ષિત ચૂકવણી"
+      link: "તમે આ વેબપેજની મુલાકાત લીધી છે"
+      times: "વખત"
+      mens_collection: "પુરુષોનો સંગ્રહ"
+      womens_collection: "મહિલા સંગ્રહ"
+      shop_now: "હવે ખરીદી કરો"
+      extra_50%_off: "વધારાના 50 છૂટ"
+      best_sallers: "શ્રેષ્ઠ વિક્રેતા"
+      deal: "મહિનાનો સોદો"
+      valuable_gifts: "મૂલ્યવાન ભેટ"
+      all_day_support: "આખો દિવસ સપોર્ટ"
+      satisfied: "અમારા સંતુષ્ટ ગ્રાહકો કહે છે"
+
+    about: 
+      heading: "મફત શિપિંગ"
+      heading2: "આધાર ગ્રાહકો"
+      heading3: "સુરક્ષિત ચૂકવણી"
+      stablished: "1975 થી સ્થાપના"
+      satisfied: "અમારા સંતુષ્ટ ગ્રાહકો કહે છે"
+      valuable_gifts: "મૂલ્યવાન ભેટ"
+      all_day_support: "આખો દિવસ સપોર્ટ"
+      shop_now: "હવે ખરીદી કરો"
+      about_us: "અમારા વિશે"
+
+    blog:
+      blog: 'બ્લોગ'
+      categories: "શ્રેણીઓ"
+    
+    contacts:
+      contact_us: "અમારો સંપર્ક કરો"    
+
+  shoes:
+    index:
+      head: "જૂતાની પ્રકાર"
+      shop: "દુકાન"
+
+  carts:
+    index:
+      my_wishlist: "મારા વિશસૂચિ"
+      cart_total: "કાર્ટ કુલ"
+      total: "કુલ"
+      final: "અંતિમ કુલ (ડિસ્કાઉન્ટ સાથે)"
+      billing_details: "બિલિંગ વિગતવાર"
+      full_name: "સંપૂર્ણ નામ"
+      state/country: "રાજ્ય/દેશ"
+      street_address: "શેરીનુ/સરનામું"
+      town/city: "નગર/શહેર"
+      postcode/zip: "ટપાલનંબર / ઝીપ"
+      phone: "ફોન"
+      email_address: "ઈ - મેઈલ સરનામું"
+      delivery: "ડિલિવરી"
+      payment_method: "ચુકવણી ની રીત"
+      direct: "ડાયરેક્ટ બેંક"
+      check: "ચેક-ચુકવણી"
+      paypal: "પેપલ"
+      terms_and_conditions: "મેં તમામ નિયમો અને શરતો વાંચી છે"
+      place_an_order: "ઓર્ડર આપો"

@@ -1,33 +1,91 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  layouts:
+    header:
+      buisiness: "3-5 buisiness days dilivery"
+      free: "Free Shipping"
+
+    footer:
+      follow: "Follow Us On Instagram"
+      minishop: "Minishop"
+      menu: "Menu"
+      shop: "Shop"
+      about: "About"
+      journal: "Journal"
+      contact_us: "Contact Us"
+      help: "Help"
+      shipping_information: "Shipping information"
+      returns: "Returns"  
+      exchange: "Exchange"
+      terms: "Terms"
+      conditions: "Conditions"
+      privacy_policy: "Privacy Policy"
+      faqs: "FAQ's"
+      contacts: "Contacts"
+      have: "Have a Questions?"
+
+  home:
+    index:
+      index_head: "New Shoes Arrival"
+      subheading: "#New Arrival"
+      subheading2: "Shoes Collection 2019"
+      subheading3: "New Shoes Winter Collection"
+      custombtn: "Discover Now"
+      heading: "Free Shipping"
+      heading2: "Support Customer"
+      heading3: "Secure Payments"
+      link: "You have visited this cite"
+      times: "times"
+      mens_collection: "Mens Collection"
+      womens_collection: "Womens Collection"
+      shop_now: "Shop Now"
+      extra_50%_off: "Extra 50% Off"
+      best_sallers: "Best Sallers"
+      deal: "Deal of the month"
+      valuable_gifts: "Valuable Gifts"
+      all_day_support: "All Day Support"
+      satisfied: "Our satisfied customer says"
+
+    about:
+      heading: "Free Shipping"
+      heading2: "Support Customer"
+      heading3: "Secure Payments"
+      stablished: "Stablished Sinced 1975"
+      satisfied: "Our satisfied customer says"
+      valuable_gifts: "Valuable Gifts"
+      all_day_support: "All Day Support"
+      shop_now: "Shop Now"
+      about_us: "About Us"
+    
+    blog:
+      blog: "Blog"
+      categories: "Categories"
+    
+    contacts:
+      contact_us: "Contact Us"
+
+  shoes:
+    index:
+      head: "Verieties Of Shoes"
+      shop: "Shop"
+
+  carts:
+    index:
+      my_wishlist: "My Wishlist"
+      cart_total: "Cart Total"
+      total: "Total"
+      final: "Final Total (With Discount)"
+      billing_details: "Billig Details"
+      full_name: "Full Name"
+      state/country: "State/Country"
+      street_address: "Street/Address"
+      town/city: "Town/City"
+      postcode/zip: "Postcode/Zip"
+      phone: "Phone"
+      email_address: "Email Address"
+      delivery: "Delivery"
+      payment_method: "Payment Method"
+      direct: "Direct Bank Transfer"
+      check: "Check Payment"
+      paypal: "Paypal"
+      terms_and_conditions: "I have read all terms and conditions"
+      place_an_order: "Place an order"

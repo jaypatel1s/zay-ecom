@@ -1,0 +1,93 @@
+mr:
+  layouts:
+    header: 
+      buisiness: "3-5 व्यावसायिक दिवस वितरण"
+      free: "मोफत शिपिंग"
+
+    footer:
+      follow: "आम्हाला instagram वर फॉलो करा"
+      minishop: "मिनीशॉप"
+      menu: "मेनू"
+      shop: "दुकान"
+      about: "बद्दल"
+      journal: "जर्नल"
+      contact_us: "आमच्याशी संपर्क साधा"
+      help: "मदत"
+      shipping_information: "शिपिंग माहिती"
+      returns: "परतावा"  
+      exchange: "देवाणघेवाण"
+      terms: "अटी"
+      conditions: "परिस्थिती"
+      privacy_policy: "गोपनीयता धोरण"
+      faqs: "सामान्य प्रश्न"
+      contacts: "संपर्क"
+      have: "प्रश्न आहेत?"
+     
+  home:
+    index:
+      index_head: "नवीन शूजचे आगमन"
+      subheading: "#उपशीर्षक"
+      subheading2: "शूज कलेक्शन 2019"
+      subheading3: "नवीन शूज हिवाळी संग्रह"
+      custombtn: "आता शोधा"
+      heading: "मुफ़्त शिपिंग"
+      heading2: "समर्थन ग्राहक"
+      heading3: "सुरक्षित पेमेंट"
+      link: "तुम्ही या वेबपेजला भेट दिली आहे"
+      times: "वेळा"
+      mens_collection: "पुरुषांचा संग्रह"
+      womens_collection: "महिला संग्रह"
+      shop_now: "आता खरेदी करा"
+      extra_50%_off: "अतिरिक्त 50 सूट"
+      best_sallers: "सर्वाधिक खपवणारे"
+      deal: "महिन्याचा सौदा"
+      valuable_gifts: "मौल्यवान भेटवस्तू"
+      all_day_support: "दिवसभर समर्थन"
+      satisfied: "आमचे समाधानी ग्राहक" 
+
+    about:
+      heading: "मुफ़्त शिपिंग"
+      heading2: "समर्थन ग्राहक"
+      heading3: "सुरक्षित पेमेंट"
+      stablished: "1975 पासून स्थापना"
+      satisfied: "आमचे समाधानी ग्राहक"
+      valuable_gifts: "मौल्यवान भेटवस्तू"
+      all_day_support: "दिवसभर समर्थन"
+      shop_now: "आता खरेदी करा"
+      about_us: "आमच्याबद्दल"
+
+    blog:
+      blog: "ब्लॉग"
+      categories: "श्रेणी"
+
+    contacts:
+      contact_us: "आमच्याशी संपर्क साधा"
+
+  shoes:
+    index:
+      head: "शूजचे प्रकार"
+      shop: "दुकान"
+
+  
+
+  carts:
+    index: 
+      my_wishlist: "माझे विशलिस्ट"
+      cart_total: "एकूण कार्ट आयटम"
+      total: "एकूण"
+      final: "अंतिम एकूण (सवलतीसह)"
+      billing_details: "बिलिंग तपशील"
+      full_name: "पूर्ण नाव"
+      state/country: "राज्य/देश"
+      street_address: "रस्ता/पत्ता"
+      town/city: "गाव/शहर"
+      postcode/zip: "पोस्टकोड/झिप"
+      phone: "फोन"
+      email_address: "ईमेल पत्ता"
+      delivery: "डिलिव्हरी"
+      payment_method: "देयक पद्धत"
+      direct: "थेट बँक"
+      check: "चेक-पेमेंट"
+      paypal: "पेपॅल"
+      terms_and_conditions: "मी सर्व नियम व अटी वाचल्या आहेत"
+      place_an_order: "ऑर्डर करा"

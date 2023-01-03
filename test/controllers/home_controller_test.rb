@@ -1,22 +1,22 @@
-require "test_helper"
+require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
+  test 'should get index' do
     get home_index_url
     assert_response :success
   end
 
-  test "should get about" do
+  test 'should get about' do
     get home_about_url
     assert_response :success
   end
 
-  test "should get blog" do
+  test 'should get blog' do
     get home_blog_url
     assert_response :success
   end
 
-  test "should get contacts" do
+  test 'should get contacts' do
     get home_contacts_url
     assert_response :success
   end

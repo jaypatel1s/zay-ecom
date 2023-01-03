@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :city
       t.string :country
       t.integer :mobile
-      
 
       t.timestamps
     end

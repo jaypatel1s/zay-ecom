@@ -3,8 +3,8 @@
     <div class="container ">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
         <div class="col-md-9 ftco-animate text-center">
-          <p class="breadcrumbs"><span class="mr-2"><%= link_to 'home', root_path %></span> <span>Cart</span></p>
-          <h1 class="mb-0 bread">My Wishlist</h1>
+          <p class="breadcrumbs"><span class="mr-2"><%= link_to 'home', root_path %></span> <span><%= t ('.my_wishlist') %></span></p>
+          <h1 class="mb-0 bread"><%= t ('.my_wishlist') %></h1>
           <span style="color: green"><%#= notice %></span>
         </div>
       </div>
@@ -77,14 +77,14 @@
             </div>
             <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
               <div class="cart-total mb-3">
-                <h3>Cart Totals</h3>
+                <h3><%= t ('.cart_total') %></h3>
                 <p class="d-flex">
-                    <span>Total</span>
+                    <span><%= t ('.total') %></span>
                     <span class="fa fa-rupee shoe-price"><%= current_user.cart_total %></span>
                 </p>    
                 <hr>
                 <p class="d-flex total-price">
-                    <span>Final total(with discount)</span>
+                    <span><%= t ('.final') %></span>
                     <span class = "fa fa-rupee shoe-price"><%= current_user.cart_total_with_discount %> </span>
                 </p>
               </div>
@@ -98,18 +98,18 @@
           <div class="row justify-content-center">
             <div class="col-xl-10 ftco-animate">
               <form action="#" class="billing-form">
-                <h3 class="mb-5 billing-heading">Billing Details</h3>
+                <h3 class="mb-5 billing-heading"><%= t ('.billing_details') %></h3>
                 <%= form_with model: @order, local: true do |f| %>
                   <div class="row align-items-end">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="firstname">Full Name</label>
+                        <label for="firstname"><%= t ('.full_name') %></label>
                         <input type="text" name = "order[name]" class="form-control" value="<%= current_user.name %>" />
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="country">State / Country</label>
+                        <label for="country"><%= t ('.state/country') %></label>
                         <div class="select-wrap">
                           <select name="" id="" class="form-control">
                             <option value="">india</option>
@@ -127,7 +127,7 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label for="streetaddress">Street Address</label>
+                        <label for="streetaddress"><%= t ('.street_address') %></label>
                         <input
                           type="text"
                           name="order[address]"
@@ -139,7 +139,7 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label for="towncity">Town / City</label>
+                        <label for="towncity"><%= t ('.town/city') %></label>
                         <input type="text" class="form-control" value="<%= current_user.city%>" />
                       </div>
                     </div>
@@ -147,13 +147,13 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label for="postcodezip">Postcode / ZIP *</label>
+                        <label for="postcodezip"><%= t ('.postcode/zip') %></label>
                         <input type="text" class="form-control" value= "<%= current_user.postcode%>" />
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label for="phone">Phone</label>
+                        <label for="phone"><%= t ('.phone')%></label>
                         <input type="text" class="form-control" value="<%= current_user.mobile%>" />
                       </div>
                     </div>
@@ -161,7 +161,7 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label for="emailaddress">Email Address</label>
+                        <label for="emailaddress"><%= t ('.email_address') %></label>
                         <input type="text" name="order[email]" class="form-control" value="<%= current_user.email%>" />
                       </div>
                     </div>
@@ -171,19 +171,19 @@
               <div class="row mt-5 pt-3 d-flex">
                 <div class="col-md-6 d-flex">
                   <div class="cart-detail cart-total bg-light p-3 p-md-4">
-                    <h3 class="billing-heading mb-4">Cart Total</h3>
+                    <h3 class="billing-heading mb-4"><%= t ('.cart_total') %></h3>
                       
                     <p class="d-flex">
-                      <span>Delivery</span>
+                      <span><%= t ('.delivery') %></span>
                       <span class="fa fa-rupee shoe-price">50</span>
                     </p>
                     <p class="d-flex">
-                      <span>Total</span>
+                      <span><%= t ('.total') %></span>
                       <span class="fa fa-rupee shoe-price"><%= current_user.cart_total %></span>
                     </p>
                     <hr />  
                     <p class="d-flex total-price">
-                      <span>Final Total(with discount)</span>
+                      <span><%= t ('.final') %></span>
                       <span class="fa fa-rupee shoe-price"><%= current_user.cart_total_with_discount%></span>
                       <input type="hidden" name="order[total]" value = <%= current_user.cart_total_with_discount %>>
                     </p>
@@ -191,13 +191,13 @@
                 </div>
                 <div class="col-md-6">
                   <div class="cart-detail bg-light p-3 p-md-4">
-                    <h3 class="billing-heading mb-4">Payment Method</h3>
+                    <h3 class="billing-heading mb-4"><%= t ('.payment_method') %></h3>
                     <div class="form-group">
                       <div class="col-md-12">
                         <div class="radio">
                           <label
                             ><input type="radio" name="order[pay_method]" value="direct_bank_transfer" class="mr-2" required='true' />
-                            Direct Bank Transfer</label
+                            <%= t ('.direct') %></label
                           >
                         </div>
                       </div>
@@ -207,7 +207,7 @@
                         <div class="radio">
                           <label
                             ><input type="radio" name="order[pay_method]" value="check_payment" class="mr-2" required='true' />
-                            Check Payment</label
+                            <%= t ('.check') %></label
                           >
                         </div>
                       </div>
@@ -217,7 +217,7 @@
                         <div class="radio">
                           <label
                             ><input type="radio" name="order[pay_method]" value="paypal" class="mr-2" required='true' />
-                            Paypal</label
+                            <%= t ('.paypal')%></label
                           >
                         </div>
                       </div>
@@ -226,15 +226,13 @@
                       <div class="col-md-12">
                         <div class="checkbox">
                           <label
-                            ><input type="checkbox" name="order[terms_and_conditions]" class="mr-2" required='true' /> I
-                            have read and accept the terms and conditions</label
-                          >
+                            ><input type="checkbox" name="order[terms_and_conditions]" class="mr-2" required='true' /> <%= t ('.terms_and_conditions') %></label>
                         </div>
                       </div>
                     </div>
                     <input type='hidden' name="order[discount]" value=<%= current_user.calculate_discount_amount %>>
                     <p>
-                      <button type="submit" class="btn btn-primary py-3 px-4">Place an Order</button>
+                      <button type="submit" class="btn btn-primary py-3 px-4"><%= t ('.place_an_order') %></button>
                     </p>
                   </div>
                 </div>

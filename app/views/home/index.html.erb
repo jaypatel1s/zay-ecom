@@ -8,15 +8,15 @@
           <%= image_tag "bg_1.png", class: 'one-third order-md-last img-fluid' %>
           <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
             <div class="text">
-              <span class="subheading">#New Arrival</span>
+              <span class="subheading"><%= t ('home.index.subheading')%></span>
                 <div class="horizontal">
-                  <h1 class="mb-4 mt-3">Shoes Collection 2019</h1>
+                  <h1 class="mb-4 mt-3"><%= t ('home.index.subheading2')%></h1>
                   <p class="mb-4">
                     A small river named Duden flows by their place and
                     supplies it with the necessary regelialia. It is a
                     paradisematic country.
                   </p>
-                  <p><a href="#" class="btn-custom">Discover Now</a></p>
+                  <p><a href="#" class="btn-custom"><%= t ('home.index.custombtn') %></a></p>
                   <div>
                     <p class="notice"><%= notice %></p>
                     <p class="alert"><%= alert %></p>   
@@ -24,8 +24,9 @@
                   <div>
                       <ul>  
                         <% if user_signed_in? %>
-                          <%= link_to "Hi, #{current_user.email}", edit_user_registration_path , class:"link"%>
-                          <li class="link">You have visited this cite <%= @visit_count %> times</li>
+                          <%#= link_to "Hi, #{current_user.email}", edit_user_registration_path , class:"link"%>
+                          <%= "Welcome, #{current_user.email}"%>
+                          <li class="link"><%= t ('.link') %> <%= @visit_count %> <%= t ('.times')%></li>
                         <% end %> 
                       </ul>
                   </div>  
@@ -43,15 +44,16 @@
             <%= image_tag "bg_2.png", class: 'one-third order-md-last img-fluid' %>
             <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
               <div class="text">
-                <span class="subheading">#New Arrival</span>
+                <span class="subheading"><%= t ('home.index.subheading') %></span>
                 <div class="horizontal">
-                  <h1 class="mb-4 mt-3">New Shoes Winter Collection</h1>
+
+                  <h1 class="mb-4 mt-3"><%= t ('home.index.subheading3') %></h1>
                   <p class="mb-4">
                     A small river named Duden flows by their place and
                     supplies it with the necessary regelialia. It is a
                     paradisematic country.
                   </p>
-                  <p><a href="#" class="btn-custom">Discover Now</a></p>
+                  <p><a href="#" class="btn-custom"><%= t ('home.index.custombtn') %></a></p>
                 <div>
                   <p class="notice"><%= notice %></p> 
                   <p class="alert"><%= alert %></p>   
@@ -59,8 +61,8 @@
                 <div>
                   <ul>
                     <% if user_signed_in? %>
-                      <%= link_to "Hi, #{current_user.email}", edit_user_registration_path, class:"link"%>
-                      <li class="link">You have visited this cite <%= @visit_count %> times</li>
+                      <%= "Hi, #{current_user.email}"%>
+                      <li class="link"><%= t ('.link') %><%= @visit_count %> <%= t ('.times')%></li>
                     <% end %>
                   </ul>
                 </div>
@@ -82,7 +84,7 @@
             <span class="flaticon-bag"></span>
           </div>
           <div class="media-body">
-            <h3 class="heading">Free Shipping</h3>
+            <h3 class="heading"><%= t ('home.index.heading') %></h3>
             <p>
               Far far away, behind the word mountains, far from the
               countries Vokalia and Consonantia, there live the blind texts.
@@ -96,7 +98,7 @@
             <span class="flaticon-customer-service"></span>
           </div>
           <div class="media-body">
-            <h3 class="heading">Support Customer</h3>
+            <h3 class="heading"><%= t ('home.index.heading2') %></h3>
             <p>
               Far far away, behind the word mountains, far from the
               countries Vokalia and Consonantia, there live the blind texts.
@@ -110,7 +112,7 @@
             <span class="flaticon-payment-security"></span>
           </div>
           <div class="media-body">
-            <h3 class="heading">Secure Payments</h3>
+            <h3 class="heading"><%= t ('.heading3') %></h3>
             <p>
               Far far away, behind the word mountains, far from the
               countries Vokalia and Consonantia, there live the blind texts.
@@ -126,7 +128,7 @@
   <div class="container">
     <div class="row justify-content-center mb-3 pb-3">
       <div class="col-md-12 heading-section text-center ftco-animate">
-        <h2 class="mb-4">New Shoes Arrival</h2>
+        <h2 class="mb-4"><%= t ('home.index.index_head') %></h2>
         <p>
           Far far away, behind the word mountains, far from the countries
           Vokalia and Consonantia
@@ -185,12 +187,12 @@
         <div class="choose-wrap divider-one img p-5 d-flex align-items-end" style="background-image: url(<%= asset_path 'choose-1.jpg'%>)">
           <div class="text text-center text-white px-2">
             <span class="subheading">Men's Shoes</span>
-            <h2>Men's Collection</h2>
+            <h2><%= t ('.mens_collection') %></h2>
             <p>
               Separated they live in Bookmarksgrove right at the coast of
               the Semantics, a large language ocean.
             </p>
-            <p><a href="#" class="btn btn-black px-3 py-2">Shop now</a></p>
+            <p><a href="#" class="btn btn-black px-3 py-2"><%= t ('.shop_now') %></a></p>
           </div>
         </div>
       </div>
@@ -201,13 +203,13 @@
               <div class="col-md-7 d-flex align-items-center">
                 <div class="text text-white px-5">
                   <span class="subheading">Women's Shoes</span>
-                  <h2>Women's Collection</h2>
+                  <h2><%= t ('.womens_collection') %></h2>
                   <p>
                     Separated they live in Bookmarksgrove right at the coast
                     of the Semantics, a large language ocean.
                   </p>
                   <p>
-                    <a href="#" class="btn btn-black px-3 py-2">Shop now</a>
+                    <a href="#" class="btn btn-black px-3 py-2"><%= t ('.shop_now') %></a>
                   </p>
                 </div>
               </div>
@@ -219,14 +221,14 @@
                 <div class="choose-wrap wrap img align-self-stretch bg-light d-flex align-items-center">
                   <div class="text text-center px-5">
                     <span class="subheading">Summer Sale</span>
-                    <h2>Extra 50% Off</h2>
+                    <h2><%= t ('.extra_50%_off') %></h2>
                     <p>
                       Separated they live in Bookmarksgrove right at the
                       coast of the Semantics, a large language ocean.
                     </p>
                     <p>
                       <a href="#" class="btn btn-black px-3 py-2"
-                        >Shop now</a
+                        ><%= t ('.shop_now')%></a
                       >
                     </p>
                   </div>
@@ -236,13 +238,13 @@
                 <div class="choose-wrap wrap img align-self-stretch d-flex align-items-center" style="background-image: url(<%= asset_path 'choose-3.jpg'%>)">
                   <div class="text text-center text-white px-5">
                     <span class="subheading">Shoes</span>
-                      <h2>Best Sellers</h2>
+                      <h2><%= t ('.best_sallers') %></h2>
                       <p>
                         Separated they live in Bookmarksgrove right at the
                         coast of the Semantics, a large language ocean.
                       </p>
                       <p>
-                        <a href="#" class="btn btn-black px-3 py-2">Shop now</a>
+                        <a href="#" class="btn btn-black px-3 py-2"><%= t ('.shop_now') %></a>
                       </p>
                   </div>
                 </div>
@@ -263,8 +265,8 @@
       </div>
       <div class="col-md-6">
         <div class="heading-section heading-section-white">
-          <span class="subheading">Deal of the month</span>
-          <h2 class="mb-3">Deal of the month</h2>
+          <span class="subheading"><%= t ('.deal') %></span>
+          <h2 class="mb-3"><%= t ('.deal') %></h2>
         </div>
         <div id="timer" class="d-flex mb-4">
           <div class="time" id="days"></div>
@@ -299,7 +301,7 @@
               <span class="flaticon-bag"></span>
             </div>
             <div class="text">
-              <h3>Free Shipping</h3>
+              <h3><%= t ('.heading') %></h3>
               <p class="mb-0">
                 Separated they live in. A small river named Duden flows
               </p>
@@ -310,7 +312,7 @@
               <span class="flaticon-heart-box"></span>
             </div>
             <div class="text">
-              <h3>Valuable Gifts</h3>
+              <h3><%= t ('.valuable_gifts') %></h3>
               <p class="mb-0">
                 Separated they live in. A small river named Duden flows
               </p>
@@ -321,7 +323,7 @@
               <span class="flaticon-payment-security"></span>
             </div>
             <div class="text">
-              <h3>All Day Support</h3>
+              <h3><%= t ('.all_day_support') %></h3>
               <p class="mb-0">
                 Separated they live in. A small river named Duden flows
               </p>
@@ -332,7 +334,7 @@
               <span class="flaticon-customer-service"></span>
             </div>
             <div class="text">
-              <h3>All Day Support</h3>
+              <h3><%= t ('.all_day_support') %></h3>
               <p class="mb-0">
                 Separated they live in. A small river named Duden flows
               </p>
@@ -342,7 +344,7 @@
       </div>
       <div class="col-lg-7">
         <div class="heading-section ftco-animate mb-5">
-          <h2 class="mb-4">Our satisfied customer says</h2>
+          <h2 class="mb-4"><%= t ('.satisfied') %></h2>
           <p>
             Far far away, behind the word mountains, far from the countries
             Vokalia and Consonantia, there live the blind texts. Separated

@@ -23,8 +23,17 @@
                         <span class="text">rauttejas066@gmail.com</span>
                         <% end %>
                     </div>
-                    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-                        <span class="text">3-5 Business days delivery &amp; Free Returns</span>
+                    <div class="col-5 pr-4 d-flex topper align-items-center text-lg-right">
+                        <span class="text"> <%= t ('.buisiness') %> &amp; <%= t ('.free') %></span>
+                        <div class="col-4 pr-4 d-flex topper align-items-center" style="color: white important!; list-style-type: none;">
+                            <% if current_page?(locale: :en) %>
+                                <li><%= link_to "ENG", locale: :gu %></li>
+                            <% elsif %>
+                                <li><%= link_to "GUJ", locale: :en %></li>
+                            <% else %>
+                                <li><%= link_to "MAR", locale: :en %></li>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,12 +83,13 @@
                 <li class="nav-item">
                     <%= link_to 'blog', home_blog_path, class:'nav-link' %>
                 </li>
-                <% if user_signed_in? && current_user.is_admin? %>
-                    <li class="nav-item">
-                        <%= link_to 'Add_Shoe', new_shoe_path, class:'nav-link' %>
-                    </li>
-                <% end %>
 
+                <% if user_signed_in? && current_user.is_admin? %>
+                    <li class="nav-item"> 
+                        <%= link_to 'Add_Shoe', new_shoe_path, class:'nav-link' %>
+                    </li> 
+                <% end %>  
+                
                 <li class="nav-item">
                     <%= link_to 'contacts', home_contacts_path, class:'nav-link' %>
                 </li>

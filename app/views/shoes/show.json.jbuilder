@@ -1,1 +1,1 @@
-json.partial! "shoes/shoe", shoe: @shoe
+json.partial! 'shoes/shoe', shoe: @shoe
