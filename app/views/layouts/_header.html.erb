@@ -27,11 +27,9 @@
                         <span class="text"> <%= t ('.buisiness') %> &amp; <%= t ('.free') %></span>
                         <div class="col-4 pr-4 d-flex topper align-items-center" style="color: white important!; list-style-type: none;">
                             <% if current_page?(locale: :en) %>
-                                <li><%= link_to "ENG", locale: :gu %></li>
-                            <% elsif %>
-                                <li><%= link_to "GUJ", locale: :en %></li>
+                                <li><%= link_to "GUJ", locale: :gu %></li>
                             <% else %>
-                                <li><%= link_to "MAR", locale: :en %></li>
+                                <li><%= link_to "ENG", locale: :en %></li>
                             <% end %>
                         </div>
                     </div>

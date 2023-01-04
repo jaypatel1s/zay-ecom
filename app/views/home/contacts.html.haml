@@ -1,0 +1,53 @@
+.hero-wrap.hero-bread{:style => "background-image: url(#{asset_path 'bg_6.jpg'});"}
+  .container
+    .row.no-gutters.slider-text.align-items-center.justify-content-center
+      .col-md-9.ftco-animate.text-center
+        %p.breadcrumbs
+          %span.mr-2
+            = link_to 'home', home_index_path
+          %span= t ('.contact_us')
+        %h1.mb-0.bread= t ('.contact_us')
+
+
+<!-- section 1 --> 
+%section.ftco-section.contact-section.bg-light
+  .container
+    .row.d-flex.mb-5.contact-info
+      .w-100
+      .col-md-3.d-flex
+        .info.bg-white.p-4
+          %p
+            %span Address:
+            198 West 21th Street, Suite 721 New York NY 10016
+      .col-md-3.d-flex
+        .info.bg-white.p-4
+          %p
+            %span Phone:
+            %a{:href => "tel://1234567920"} +91 8421370161
+      .col-md-3.d-flex
+        .info.bg-white.p-4
+          %p
+            %span Email:
+            %a{:href => "#"} tejas.raut@softices.com
+      .col-md-3.d-flex
+        .info.bg-white.p-4
+          %p
+            %span Website
+            %a{:href => "https://softices.com/"} softices.com
+    .row.block-9
+      .col-md-6.order-md-last.d-flex
+        %form.bg-white.p-5.contact-form{:action => "#"}
+          .form-group
+            %input.form-control{:placeholder => "Your Name", :type => "text"}/
+          .form-group
+            %input.form-control{:placeholder => "Your Email", :type => "text"}/
+          .form-group
+            %input.form-control{:placeholder => "Subject", :type => "text"}/
+          .form-group
+            %textarea.form-control{:cols => "30", :id => "", :name => "", :placeholder => "Message", :rows => "7"}
+          .form-group
+            %input.btn.btn-primary.py-3.px-5{:type => "submit", :value => "Send Message"}/
+      .col-md-6.d-flex
+        #map.bg-white{:style => "background-image: url(#{asset_path 'about.jpg'})"}
+          %a.icon.popup-vimeo.d-flex.justify-content-center.align-items-center{:href => "https://www.storyblocks.com/video/search/shoe+store"}
+

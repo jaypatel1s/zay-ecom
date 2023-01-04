@@ -1,0 +1,310 @@
+/ ************* SECTION 1 ****************
+%section#home-section.hero
+  .home-slider.owl-carousel
+    .slider-item.js-fullheight
+      / <div class="overlay"></div>
+      .container-fluid.p-0
+        .row.d-md-flex.no-gutters.slider-text.align-items-center.justify-content-end{"data-scrollax-parent" => "true"}
+          = image_tag "bg_1.png", class: 'one-third order-md-last img-fluid'
+          .one-forth.d-flex.align-items-center.ftco-animate{"data-scrollax" => " properties: { translateY: '70%' }"}
+            .text
+              %span.subheading= t ('home.index.subheading')
+              .horizontal
+                %h1.mb-4.mt-3= t ('home.index.subheading2')
+                %p.mb-4
+                  A small river named Duden flows by their place and
+                  supplies it with the necessary regelialia. It is a
+                  paradisematic country.
+                %p
+                  %a.btn-custom{:href => "#"}= t ('home.index.custombtn')
+                %div
+                  %p.notice= notice
+                  %p.alert= alert
+                %div
+                  %ul
+                    - if user_signed_in?
+                      = "Welcome, #{current_user.email}"
+                      %li.link
+                        = t ('.link')
+                        = @visit_count
+                        = t ('.times')
+    / secon div for another image
+    .slider-item.js-fullheight
+      / <div class="overlay"></div>
+      .row.d-flex.no-gutters.slider-text.align-items-center.justify-content-end{"data-scrollax-parent" => "true"}
+        .container-fluid.p-0
+          = image_tag "bg_2.png", class: 'one-third order-md-last img-fluid'
+          .one-forth.d-flex.align-items-center.ftco-animate{"data-scrollax" => " properties: { translateY: '70%' }"}
+            .text
+              %span.subheading= t ('home.index.subheading')
+              .horizontal
+                %h1.mb-4.mt-3= t ('home.index.subheading3')
+                %p.mb-4
+                  A small river named Duden flows by their place and
+                  supplies it with the necessary regelialia. It is a
+                  paradisematic country.
+                %p
+                  %a.btn-custom{:href => "#"}= t ('home.index.custombtn')
+                %div
+                  %p.notice= notice
+                  %p.alert= alert
+                %div
+                  %ul
+                    - if user_signed_in?
+                      = "Welcome, #{current_user.email}"
+                      %li.link
+                        = t ('.link')
+                        = @visit_count
+                        = t ('.times')
+/ ************* SECTION 2 ****************
+%section.ftco-section.ftco-no-pt.ftco-no-pb
+  .container
+    .row.no-gutters.ftco-services
+      .col-lg-4.text-center.d-flex.align-self-stretch.ftco-animate
+        .media.block-6.services.p-4.py-md-5
+          .icon.d-flex.justify-content-center.align-items-center.mb-4
+            %span.flaticon-bag
+          .media-body
+            %h3.heading= t ('home.index.heading')
+            %p
+              Far far away, behind the word mountains, far from the
+              countries Vokalia and Consonantia, there live the blind texts.
+      .col-lg-4.text-center.d-flex.align-self-stretch.ftco-animate
+        .media.block-6.services.p-4.py-md-5
+          .icon.d-flex.justify-content-center.align-items-center.mb-4
+            %span.flaticon-customer-service
+          .media-body
+            %h3.heading= t ('home.index.heading2')
+            %p
+              Far far away, behind the word mountains, far from the
+              countries Vokalia and Consonantia, there live the blind texts.
+      .col-lg-4.text-center.d-flex.align-self-stretch.ftco-animate
+        .media.block-6.services.p-4.py-md-5
+          .icon.d-flex.justify-content-center.align-items-center.mb-4
+            %span.flaticon-payment-security
+          .media-body
+            %h3.heading= t ('.heading3')
+            %p
+              Far far away, behind the word mountains, far from the
+              countries Vokalia and Consonantia, there live the blind texts.
+/ ************* SECTION 3 ****************
+%section.ftco-section.bg-light
+  .container
+    .row.justify-content-center.mb-3.pb-3
+      .col-md-12.heading-section.text-center.ftco-animate
+        %h2.mb-4= t ('home.index.index_head')
+        %p
+          Far far away, behind the word mountains, far from the countries
+          Vokalia and Consonantia
+  .container
+    .row
+      / img 1
+      - @shoes.each do |shoe|
+        .col-sm-12.col-md-6.col-lg-3.ftco-animate.d-flex
+          .product.d-flex.flex-column
+            %a.img-prod{:href => "#"}
+              - if shoe.file.present?
+                = image_tag shoe.file, class: 'img-fluid'
+                .overlay
+            .text.py-3.pb-4.px-3
+              .d-flex
+                .cat
+                  %span Lifestyle
+                .rating
+                  %p.text-right.mb-0
+                    %a{:href => "#"}
+                      %span.ion-ios-star-outline
+                    %a{:href => "#"}
+                      %span.ion-ios-star-outline
+                    %a{:href => "#"}
+                      %span.ion-ios-star-outline
+                    %a{:href => "#"}
+                      %span.ion-ios-star-outline
+                    %a{:href => "#"}
+                      %span.ion-ios-star-outline
+              %h3
+                %a{:href => "#"}= shoe.name
+              .pricing
+                %p.price
+                  %span.fa.fa-rupee.shoe-price= shoe.price
+              %p.bottom-area.d-flex.px-3
+                = link_to 'Add to cart', carts_path(cart: { shoe_id: shoe.id, is_active: true}), method: :post, class:"ion-ios-add add-to-cart text-center py-2 mr-1"
+                = link_to 'Buy', carts_path(cart: { shoe_id: shoe.id, is_active: true }), method: :post, class:"ion-ios-cart buy-now text-center py-2"
+              = link_to "close view", shoe , class:"btn btn-primary mt-2"
+/ ************* SECTION 4 ****************
+%section.ftco-section.ftco-choose.ftco-no-pb.ftco-no-pt
+  .container
+    .row.no-gutters
+      .col-lg-4
+        .choose-wrap.divider-one.img.p-5.d-flex.align-items-end{:style => "background-image: url(#{asset_path 'choose-1.jpg'})"}
+          .text.text-center.text-white.px-2
+            %span.subheading Men's Shoes
+            %h2= t ('.mens_collection')
+            %p
+              Separated they live in Bookmarksgrove right at the coast of
+              the Semantics, a large language ocean.
+            %p
+              %a.btn.btn-black.px-3.py-2{:href => "#"}= t ('.shop_now')
+      .col-lg-8
+        .row.no-gutters.choose-wrap.divider-two.align-items-stretch
+          .col-md-12
+            .choose-wrap.full-wrap.img.align-self-stretch.d-flex.align-item-center.justify-content-end{:style => "background-image: url(#{asset_path 'choose-2.jpg'})"}
+              .col-md-7.d-flex.align-items-center
+                .text.text-white.px-5
+                  %span.subheading Women's Shoes
+                  %h2= t ('.womens_collection')
+                  %p
+                    Separated they live in Bookmarksgrove right at the coast
+                    of the Semantics, a large language ocean.
+                  %p
+                    %a.btn.btn-black.px-3.py-2{:href => "#"}= t ('.shop_now')
+          .col-md-12
+            .row.no-gutters
+              .col-md-6
+                .choose-wrap.wrap.img.align-self-stretch.bg-light.d-flex.align-items-center
+                  .text.text-center.px-5
+                    %span.subheading Summer Sale
+                    %h2= t ('.extra_50%_off')
+                    %p
+                      Separated they live in Bookmarksgrove right at the
+                      coast of the Semantics, a large language ocean.
+                    %p
+                      %a.btn.btn-black.px-3.py-2{:href => "#"}= t ('.shop_now')
+              .col-md-6
+                .choose-wrap.wrap.img.align-self-stretch.d-flex.align-items-center{:style => "background-image: url(#{asset_path 'choose-3.jpg'})"}
+                  .text.text-center.text-white.px-5
+                    %span.subheading Shoes
+                    %h2= t ('.best_sallers')
+                    %p
+                      Separated they live in Bookmarksgrove right at the
+                      coast of the Semantics, a large language ocean.
+                    %p
+                      %a.btn.btn-black.px-3.py-2{:href => "#"}= t ('.shop_now')
+/ ************* SECTION 5 ****************
+%section.ftco-section.ftco-deal.bg-primary
+  .container
+    .row
+      .col-md-6
+        = image_tag "prod-1.png", class: "img-fluid"
+      .col-md-6
+        .heading-section.heading-section-white
+          %span.subheading= t ('.deal')
+          %h2.mb-3= t ('.deal')
+        #timer.d-flex.mb-4
+          #days.time
+          #hours.time.pl-4
+          #minutes.time.pl-4
+          #seconds.time.pl-4
+        .text-deal
+          %h2
+            %a{:href => "#"} Nike Free RN 2019 iD
+          %p.price
+            %span.mr-2.price-dc $120.00
+            %span.price-sale $80.00
+          %ul.thumb-deal.d-flex.mt-4
+            %li.img{:style => "background-image: url(#{asset_path 'product-6.png'})"}
+            %li.img{:style => "background-image: url(#{asset_path 'product-2.png'})"}
+            %li.img{:style => "background-image: url(#{asset_path 'product-4.png'})"}
+/ ************* SECTION 6 ****************
+%section.ftco-section.testimony-section
+  .container
+    .row
+      .col-lg-5
+        .services-flow
+          .services-2.p-4.d-flex.ftco-animate
+            .icon
+              %span.flaticon-bag
+            .text
+              %h3= t ('.heading')
+              %p.mb-0
+                Separated they live in. A small river named Duden flows
+          .services-2.p-4.d-flex.ftco-animate
+            .icon
+              %span.flaticon-heart-box
+            .text
+              %h3= t ('.valuable_gifts')
+              %p.mb-0
+                Separated they live in. A small river named Duden flows
+          .services-2.p-4.d-flex.ftco-animate
+            .icon
+              %span.flaticon-payment-security
+            .text
+              %h3= t ('.all_day_support')
+              %p.mb-0
+                Separated they live in. A small river named Duden flows
+          .services-2.p-4.d-flex.ftco-animate
+            .icon
+              %span.flaticon-customer-service
+            .text
+              %h3= t ('.all_day_support')
+              %p.mb-0
+                Separated they live in. A small river named Duden flows
+      .col-lg-7
+        .heading-section.ftco-animate.mb-5
+          %h2.mb-4= t ('.satisfied')
+          %p
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts. Separated
+            they live in
+        .carousel-testimony.owl-carousel
+          .item
+            .testimony-wrap
+              .user-img.mb-4{:style => "background-image: url(#{asset_path 'person_1.jpg'})"}
+                %span.quote.d-flex.align-items-center.justify-content-center
+                  %i.icon-quote-left
+              .text
+                %p.mb-4.pl-4.line
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind
+                  texts.
+                %p.name Garreth Smith
+                %span.position Marketing Manager
+          .item
+            .testimony-wrap
+              .user-img.mb-4{:style => "background-image: url(#{asset_path 'person_2.jpg'})"}
+                %span.quote.d-flex.align-items-center.justify-content-center
+                  %i.icon-quote-left
+              .text
+                %p.mb-4.pl-4.line
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind
+                  texts.
+                %p.name Will Smith
+                %span.position Interface Designer
+          .item
+            .testimony-wrap
+              .user-img.mb-4{:style => "background-image: url(#{asset_path 'person_3.jpg'})"}
+                %span.quote.d-flex.align-items-center.justify-content-center
+                  %i.icon-quote-left
+              .text
+                %p.mb-4.pl-4.line
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind
+                  texts.
+                %p.name Nikhol johnson
+                %span.position UI Designer
+          .item
+            .testimony-wrap
+              .user-img.mb-4{:style => "background-image: url(#{asset_path 'person_1.jpg'})"}
+                %span.quote.d-flex.align-items-center.justify-content-center
+                  %i.icon-quote-left
+              .text
+                %p.mb-4.pl-4.line
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind
+                  texts.
+                %p.name Josh gates
+                %span.position Web Developer
+          .item
+            .testimony-wrap
+              .user-img.mb-4{:style => "background-image: url(#{asset_path 'person_2.jpg'})"}
+                %span.quote.d-flex.align-items-center.justify-content-center
+                  %i.icon-quote-left
+              .text
+                %p.mb-4.pl-4.line
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind
+                  texts.
+                %p.name James brawn
+                %span.position System Analyst
+
